@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -198,6 +200,78 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DB\AlumnoPorCurso.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Areas.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\AreasPorCentro.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\AspNetRoles.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\AspNetUserClaims.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\AspNetUserLogins.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\AspNetUsers.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Centros.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Cursos.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\C__MigrationHistory.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\InstructorPorCurso.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ModelSPA.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSPA.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ModelSPA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ModelSPA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSPA.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Modulos.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ModulosPorCurso.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Preguntas.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\PreguntasPorPrueba.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Pruebas.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Respuestas.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\TipoUsuario.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Usuarios.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,6 +299,16 @@
     <Content Include="css\smartadmin-rtl.min.css" />
     <Content Include="css\smartadmin-skins.min.css" />
     <Content Include="css\your_style.css" />
+    <Content Include="DB\ModelSPA.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSPA.edmx</DependentUpon>
+      <LastGenOutput>ModelSPA.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\ModelSPA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSPA.edmx</DependentUpon>
+      <LastGenOutput>ModelSPA.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome\fontawesome-webfont.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -870,6 +954,13 @@
     <Content Include="js\plugin\datetimepicker-master\doc.tpl" />
     <Content Include="js\plugin\datetimepicker-master\package.json" />
     <Content Include="js\plugin\datetimepicker-master\README.md" />
+    <EntityDeploy Include="DB\ModelSPA.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelSPA.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DB\ModelSPA.edmx.diagram">
+      <DependentUpon>ModelSPA.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -927,6 +1018,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
