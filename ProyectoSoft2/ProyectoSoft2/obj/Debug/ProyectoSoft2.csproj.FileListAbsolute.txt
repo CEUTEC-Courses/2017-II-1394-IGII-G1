@@ -159,6 +159,5 @@ C:\Users\jwarl\Documents\GitHub\2017-II-1394-IGII-G1\ProyectoSoft2\ProyectoSoft2
 C:\Users\jwarl\Documents\GitHub\2017-II-1394-IGII-G1\ProyectoSoft2\ProyectoSoft2\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\jwarl\Documents\GitHub\2017-II-1394-IGII-G1\ProyectoSoft2\ProyectoSoft2\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\jwarl\Documents\GitHub\2017-II-1394-IGII-G1\ProyectoSoft2\ProyectoSoft2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\jwarl\Documents\GitHub\2017-II-1394-IGII-G1\ProyectoSoft2\ProyectoSoft2\obj\Debug\ProyectoSoft2.csprojResolveAssemblyReference.cache
 C:\Users\jwarl\Documents\GitHub\2017-II-1394-IGII-G1\ProyectoSoft2\ProyectoSoft2\obj\Debug\ProyectoSoft2.dll
 C:\Users\jwarl\Documents\GitHub\2017-II-1394-IGII-G1\ProyectoSoft2\ProyectoSoft2\obj\Debug\ProyectoSoft2.pdb

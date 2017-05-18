@@ -202,6 +202,7 @@
     <Compile Include="Controllers\CentrosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TipoUsuarioController.cs" />
     <Compile Include="DB\AlumnoPorCurso.cs">
       <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
@@ -1019,6 +1020,11 @@
     <Content Include="Views\Areas\Details.cshtml" />
     <Content Include="Views\Areas\Edit.cshtml" />
     <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\TipoUsuario\Create.cshtml" />
+    <Content Include="Views\TipoUsuario\Delete.cshtml" />
+    <Content Include="Views\TipoUsuario\Details.cshtml" />
+    <Content Include="Views\TipoUsuario\Edit.cshtml" />
+    <Content Include="Views\TipoUsuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
