@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+    <div class="jarviswidget" id="">
+        <header role="heading">
+            <span class="widget-icon"> <i class="fa fa-user"></i> </span>
+            <h2><strong>Lista de Usuarios</strong></h2>
+            <div class="widget-toolbar" role="menu">
+                <a href="/Usuario/CrearUsuario" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i>   Crear Usuario</a>
+            </div>
+        </header>
+        <!-- widget div-->
+        <div>
+            <!-- widget content -->
+            <div class="widget-body no-padding">
+                <table class="table table-bordered table-responsive table-hover" id="TablaUsuario" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Acciones</th>
+                            <th>Id</th>
+                            <th>Tipo de Usuario </th>
+                            <th>Nombre de Usuario</th>
+                            <th>Nombre</th>
+                            <th> Apellido</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Correo Electronico</th>
+                            <th> Estado </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>       
+            </div>
+        </div>
+    </div>
+
+ 
+
+@section Scripts {
+    
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#TablaUsuario").dataTable({       
+        ajax: {
+            url: "@Url.Action("ListarUsuarios", "Usuario")",
+            type: "GET",
+            dataSrc: function (data) {
+                return data;
+            }
+            },
+        "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6 hidden-xs'f><'col-sm-6 col-xs-12 hidden-xs'<'toolbar'>l>r>" +
+        "t" +
+        "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+        //"autoWidth": true,
+        "language": {
+            "emptyTable": "No se encontraron resultados.",
+            "search": '<div class="icon-addon addon-md"><label for="search" class="glyphicon glyphicon-search"></label>',
+            "paginate": {
+                first: "Primero",
+                previous: "Anterior",
+                next: "Siguiente",
+                last: "Ultimo"
+            },
+            "lengthMenu": " _MENU_ ",
+            "info": "Mostrando registros del _START_ al _END_ de _TOTAL_ registros totales.",
+            "infoEmpty": "No hay registros para mostrar.",
+        },
+        columns: [
+            {
+                data: null,
+                render: function (data) {
+                    var opciones = '<div class="btn-group display-inline pull-right text-align-left">' + '<button class="btn btn-xs btn-link dropdown-toggle ';
+                    opciones += !data.Estado ? "disabled" : "";
+                    opciones += '" data-toggle="dropdown" aria-expanded="false"> Acciones <i class="fa fa-caret-down fa-lg"></i> </button><ul class="dropdown-menu dropdown-menu-xs pull-right">';                  
+                    opciones += '<li><a href="javascript:void(0);" name="DeshabilitarUsuario"><i class="fa fa-ban fa-lg fa-fw"></i> Deshabilitar</a></li>';
+                    opciones += '</ul></div>';
+                    return opciones;
+                }
+            },
+            {
+                data: "Id",
+                visible : "false"
+            },
+            {
+                data: "TipoUsuario"
+            },
+            {
+                data: "UserName"
+            },
+            {
+                data: "FirstName"
+            },
+            {
+                data: "LastName"
+            },
+            {
+                data: null,
+                render: function (data) {
+                    return moment(data.BirthDate).format("DD/MM/YYYY");
+                }
+            },
+            {
+                data: "Email"
+            },
+            {
+                data: null,
+                render: function (data) {
+                     return data.Estado ? '<span class="center-block padding-5 label label-success"><i class="fa fa-check"></i></span>' : '<span class="center-block padding-5 label label-danger"><i class="fa fa-trash"></i></span>';
+                }
+            },
+
+
+        ]
+    });
+
+
+    })
+</script>
+
+}

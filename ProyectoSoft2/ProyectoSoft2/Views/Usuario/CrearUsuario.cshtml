@@ -1,0 +1,95 @@
+﻿@model ProyectoSoft2.Models.Usuario.UsuarioViewModel
+
+@{
+    ViewBag.Title = "Crear Usuario";
+}
+<form class="smart-form">
+    <header><strong>Crear Usuario</strong></header>
+    <br />
+    <fieldset style="padding-top:10px;">
+
+        <div class="row">
+            <section class="col col-6">
+                <strong>Informacion Personal</strong>
+                <hr />
+
+                <div class="row" style="padding:20px;">
+                    <section>
+                        <span>@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </section>
+                    <section>
+                        <span>@Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </section>
+                    <section>
+                        <span>@Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                    </section>
+                    <section>
+                        <span>@Html.LabelFor(model => model.TipoUsuario, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.TipoUsuario, new { htmlAttributes = new { @class = "form-control" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.TipoUsuario, "", new { @class = "text-danger" })
+                    </section>
+
+                </div>
+                <strong>Informacion de Cuenta</strong>
+                <hr />
+                <div class="row" style="padding:20px;">
+                    <section>
+                        <span>@Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </section>
+                    <section>
+                        <span>@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </section>
+                    <section>
+                        <span>@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </section>
+                    <section>
+                        <span>@Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    </section>
+
+                </div>
+                <a href="/Usuario/Index" class="btn btn-default btn-lg "><i class="fa fa-arrow-left"></i> </a>
+                <a class="btn btn-primary btn-lg"> Crear Usuario</a>
+               
+
+            </section>
+        </div>
+    </fieldset>
+    
+</form>    
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
