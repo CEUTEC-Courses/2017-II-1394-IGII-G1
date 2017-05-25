@@ -201,85 +201,85 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DB\AlumnoPorCurso.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Areas.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AreasPorCentro.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetRoles.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetUserClaims.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetUserLogins.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetUsers.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Centros.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Cursos.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\C__MigrationHistory.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\InstructorPorCurso.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ModelSPA.Context.cs">
+    <Compile Include="DB\ModelHCF.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSPA.Context.tt</DependentUpon>
+      <DependentUpon>ModelHCF.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ModelSPA.cs">
+    <Compile Include="DB\ModelHCF.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ModelSPA.Designer.cs">
+    <Compile Include="DB\ModelHCF.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSPA.edmx</DependentUpon>
+      <DependentUpon>ModelHCF.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Modulos.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\ModulosPorCurso.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Preguntas.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\PreguntasPorPrueba.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Pruebas.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Respuestas.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\TipoUsuario.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Usuarios.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
+      <DependentUpon>ModelHCF.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Base\MensajeRespuestaViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Role\RoleViewModel.cs" />
     <Compile Include="Models\Usuario\EditarCuentaUsuarioViewModel.cs" />
     <Compile Include="Models\Usuario\ListaUsuarioViewModel.cs" />
     <Compile Include="Models\Usuario\UsuarioViewModel.cs" />
@@ -304,15 +304,15 @@
     <Content Include="css\smartadmin-rtl.min.css" />
     <Content Include="css\smartadmin-skins.min.css" />
     <Content Include="css\your_style.css" />
-    <Content Include="DB\ModelSPA.Context.tt">
+    <Content Include="DB\ModelHCF.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelSPA.edmx</DependentUpon>
-      <LastGenOutput>ModelSPA.Context.cs</LastGenOutput>
+      <DependentUpon>ModelHCF.edmx</DependentUpon>
+      <LastGenOutput>ModelHCF.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\ModelSPA.tt">
+    <Content Include="DB\ModelHCF.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelSPA.edmx</DependentUpon>
-      <LastGenOutput>ModelSPA.cs</LastGenOutput>
+      <DependentUpon>ModelHCF.edmx</DependentUpon>
+      <LastGenOutput>ModelHCF.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome\fontawesome-webfont.svg" />
@@ -959,12 +959,12 @@
     <Content Include="js\plugin\datetimepicker-master\doc.tpl" />
     <Content Include="js\plugin\datetimepicker-master\package.json" />
     <Content Include="js\plugin\datetimepicker-master\README.md" />
-    <EntityDeploy Include="DB\ModelSPA.edmx">
+    <EntityDeploy Include="DB\ModelHCF.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelSPA.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelHCF.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DB\ModelSPA.edmx.diagram">
-      <DependentUpon>ModelSPA.edmx</DependentUpon>
+    <Content Include="DB\ModelHCF.edmx.diagram">
+      <DependentUpon>ModelHCF.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1014,6 +1014,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\CrearUsuario.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\CrearRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

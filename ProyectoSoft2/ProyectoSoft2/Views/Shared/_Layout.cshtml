@@ -61,12 +61,12 @@
         </div>
     </div>
 
-    <div id="MyModal" class="modal fade" role="dialog" style="z-index:1000000;">
+    <div id="MyModal" class="modal fade" role="dialog" data-backdrop='static' data-keyboard="false">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal"> <big>&times;</big></button>
                     <h4 class="modal-title" id="MyModalTitle">Modal Header</h4>
                 </div>
                 <div class="modal-body" id="MyModalBody">
@@ -242,10 +242,10 @@
                             <a href="@Url.Action("Index","Usuario")" title="Usuario"><span class="menu-item-parent"> Usuarios</span></a>
                         </li>
                         <li class="">
-                            <a href="@Url.Action("Index","Usuario")" title="Usuario"><span class="menu-item-parent"> Roles</span></a>
+                            <a href="@Url.Action("Index","Role")" title="Usuario"><span class="menu-item-parent"> Roles</span></a>
                         </li>
                         <li class="">
-                            <a href="@Url.Action("Index","Usuario")" title="Usuario"><span class="menu-item-parent"> Tipo de Usuarios</span></a>
+                            <a href="@Url.Action("VerTiposUsuarios","Usuario")" title="Usuario"><span class="menu-item-parent"> Tipo de Usuarios</span></a>
                         </li>
 
                     </ul>

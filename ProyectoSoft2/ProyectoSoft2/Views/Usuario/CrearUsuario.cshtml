@@ -3,11 +3,11 @@
 @{
     ViewBag.Title = "Crear Usuario";
 }
-<form class="smart-form">
+<form class="smart-form" id="FormUsuario">
     <header><strong>Crear Usuario</strong></header>
     <br />
     <fieldset style="padding-top:10px;">
-
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="row">
             <section class="col col-6">
                 <strong>Informacion Personal</strong>
@@ -31,23 +31,26 @@
                     <section>
                         <span>@Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label" })</span>
                         <label class="input">
+                            <i class="icon-append fa fa-calendar"></i>
                             @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
                         </label>
                         @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
                     </section>
-                    <section>
-                        <span>@Html.LabelFor(model => model.TipoUsuario, htmlAttributes: new { @class = "control-label" })</span>
-                        <label class="input">
-                            @Html.EditorFor(model => model.TipoUsuario, new { htmlAttributes = new { @class = "form-control" } })
-                        </label>
-                        @Html.ValidationMessageFor(model => model.TipoUsuario, "", new { @class = "text-danger" })
-                    </section>
+
 
                 </div>
-                <strong>Informacion de Cuenta</strong>
+                <strong>Cuenta de Usuario</strong>
                 <hr />
                 <div class="row" style="padding:20px;">
                     <section>
+                        <span>@Html.LabelFor(model => model.RoleUsuario, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.DropDownListFor(model => model.RoleUsuario, new SelectList(ViewBag.ListaTipoUsuario, "Value", "Text"), "", new { @class = "form-control select2", style = "width:100%;" })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.RoleUsuario, "", new { @class = "text-danger" })
+                    </section>
+                    
+                     <section>
                         <span>@Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label" })</span>
                         <label class="input">
                             @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
@@ -78,7 +81,7 @@
 
                 </div>
                 <a href="/Usuario/Index" class="btn btn-default btn-lg "><i class="fa fa-arrow-left"></i> </a>
-                <a class="btn btn-primary btn-lg"> Crear Usuario</a>
+                <a class="btn btn-primary btn-lg" onclick="CrearUsuario()"> Crear Usuario</a>
                
 
             </section>
@@ -92,4 +95,55 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $("#TipoUsuario").select2();
+
+        $("#BirthDate")
+            .datepicker({
+                dateFormat: 'dd/M/yy',
+                changeMonth: true,
+                changeYear: true,
+                prevText: '<i class="fa fa-chevron-left"></i>',
+                nextText: '<i class="fa fa-chevron-right"></i>'
+            });
+
+
+        function CrearUsuario() {
+           
+            var $result = $("#FormUsuario").valid();
+            if (!$result) { return false;}
+
+            LoadWaitNotification();
+                $.ajax({
+                    url: "/Usuario/CrearUsuario",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $('#FormUsuario').serialize(),
+                    success: function (data) {
+
+                        if (data.Estado) {
+                            ShowboxSuccess(data.Mensaje, data.Titulo);
+                            new $.fn.dataTable.Api("#IdTabla").ajax.reload();
+                            $("#MyModal").modal("hide");
+                        } else ShowboxError(data.Mensaje, data.Titulo);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        alert(textStatus + ": crear contrato");
+                        UnloadWaitNotification();
+                    },
+                    complete: function () { UnloadWaitNotification(); }
+                });
+
+            
+
+        };
+
+
+
+
+    </script>
+
 }
+
+

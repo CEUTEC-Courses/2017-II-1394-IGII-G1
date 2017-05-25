@@ -13,7 +13,7 @@ namespace ProyectoSoft2.Models.Usuario
 
         [Required]
         [Display(Name = "Tipo de Usuario")]
-        public int TipoUsuario { get; set; }
+        public string RoleUsuario { get; set; }
 
         [Required]
         [StringLength(50)]
