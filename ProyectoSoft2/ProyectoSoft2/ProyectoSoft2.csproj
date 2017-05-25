@@ -198,7 +198,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CentrosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -1016,6 +1018,16 @@
     <Content Include="Views\Usuario\CrearUsuario.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\CrearRole.cshtml" />
+    <Content Include="Views\Areas\Create.cshtml" />
+    <Content Include="Views\Areas\Delete.cshtml" />
+    <Content Include="Views\Areas\Details.cshtml" />
+    <Content Include="Views\Areas\Edit.cshtml" />
+    <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\Centros\Create.cshtml" />
+    <Content Include="Views\Centros\Delete.cshtml" />
+    <Content Include="Views\Centros\Details.cshtml" />
+    <Content Include="Views\Centros\Edit.cshtml" />
+    <Content Include="Views\Centros\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
