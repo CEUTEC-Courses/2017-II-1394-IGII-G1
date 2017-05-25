@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="002ac506f2794c33b9391dc87d239aeb" Name="Diagram1">
+      <Diagram DiagramId="76e41f57e6024b28b38ad9a28e5be709" Name="Diagram1">
         <EntityTypeShape EntityType="courageproModel.C__MigrationHistory" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="courageproModel.AlumnoPorCurso" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="courageproModel.Areas" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
@@ -22,25 +22,25 @@
         <EntityTypeShape EntityType="courageproModel.PreguntasPorPrueba" Width="1.5" PointX="7.5" PointY="18.125" IsExpanded="true" />
         <EntityTypeShape EntityType="courageproModel.Pruebas" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="courageproModel.Respuestas" Width="1.5" PointX="7.5" PointY="21.75" IsExpanded="true" />
-        <AssociationConnector Association="courageproModel.FK__AlumnoPor__IdCur__7A672E12" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__AreasPorC__IdAre__534D60F1" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__Cursos__IdArea__571DF1D5" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__AreasPorC__IdCen__5441852A" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="courageproModel.Usuarios" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="courageproModel.FK__AlumnoPor__IdCur__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__AlumnoPor__IdUsu__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__AreasPorC__IdAre__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__Cursos__IdArea__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__AreasPorC__IdCen__09A971A2" ManuallyRouted="false" />
         <AssociationConnector Association="courageproModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="courageproModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__Instructo__IdCur__76969D2E" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__ModulosPo__IdCur__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__ModulosPo__IdMod__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__Preguntas__IdMod__5FB337D6" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__Pruebas__IdModul__656C112C" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__Preguntas__IdPre__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__Respuesta__IdPre__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="courageproModel.FK__Preguntas__IdPru__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK_Usuario_IdAspUser" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__Instructo__IdCur__245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__ModulosPo__IdCur__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__Instructo__IdUsu__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__ModulosPo__IdMod__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__Preguntas__IdMod__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__Pruebas__IdModul__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__Preguntas__IdPre__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__Respuesta__IdPre__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="courageproModel.FK__Preguntas__IdPru__1EA48E88" ManuallyRouted="false" />
         <AssociationConnector Association="courageproModel.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="courageproModel.Usuarios" Width="1.5" PointX="3" PointY="12.875" />
-        <AssociationConnector Association="courageproModel.FK__AlumnoPor__IdUsu__797309D9" />
-        <AssociationConnector Association="courageproModel.Fk_Usuario_IdAspnetUser" />
-        <AssociationConnector Association="courageproModel.FK__Instructo__IdUsu__75A278F5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

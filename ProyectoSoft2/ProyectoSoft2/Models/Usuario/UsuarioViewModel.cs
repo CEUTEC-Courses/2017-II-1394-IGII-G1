@@ -12,17 +12,17 @@ namespace ProyectoSoft2.Models.Usuario
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Tipo de Usuario")]
+        [Display(Name = "Rol de Usuario")]
         public string RoleUsuario { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Nombres")]
+        [Display(Name = "Nombre")]
         public string FirstName { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Apellidos")]
+        [Display(Name = "Apellido")]
         public string LastName { get; set; }
 
         [Required]
@@ -41,12 +41,12 @@ namespace ProyectoSoft2.Models.Usuario
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Contraseña")]
+        [Display(Name = "Nueva Contraseña")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar Contraseña")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "La nueva contraseña y la confirmacion no son las mismas")]
         public string ConfirmPassword { get; set; }
 
         public string IdAspNetUser { get; set; }

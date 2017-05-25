@@ -112,5 +112,50 @@ namespace ProyectoSoft2.Controllers
   
         }
 
+
+
+        [HttpGet]
+        public ActionResult EditarInfoUsuario(int Id)
+        {
+            using (var context = new courageproEntities())
+            {
+                var usuario = context.Usuarios.Find(Id);              
+                return PartialView(new UsuarioViewModel {
+                    FirstName = usuario.Nombre,
+                    LastName = usuario.Apellido,
+                    BirthDate = usuario.FechaNacimiento
+                });
+            }
+        }
+
+        [HttpGet]
+        public ActionResult EditarCuentaUsuario(int Id)
+        {
+            using (var context = new courageproEntities())
+            {
+                ViewBag.ListaTipoUsuario = context.AspNetRoles.Select(x => new SelectListItem { Value = x.Id, Text = x.Name }).ToList();
+                var usuario = context.Usuarios.Find(Id);
+                var user =  UserManager.FindByIdAsync(usuario.IdAspNetUser);
+                return PartialView(new UsuarioViewModel
+                {
+                    UserName = user.Result.UserName,
+                    Email = user.Result.Email,      
+                });
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ResetContrasena(int Id)
+        {
+            using (var context = new courageproEntities())
+            {               
+                return PartialView(new UsuarioViewModel());
+            }
+
+
+
+        }
+
+
     }
 }

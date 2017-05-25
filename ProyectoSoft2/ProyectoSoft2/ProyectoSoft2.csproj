@@ -208,73 +208,73 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DB\AlumnoPorCurso.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Areas.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AreasPorCentro.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetRoles.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetUserClaims.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetUserLogins.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetUsers.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Centros.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Cursos.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\C__MigrationHistory.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\InstructorPorCurso.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ModelHCF.Context.cs">
+    <Compile Include="DB\ModelCourage.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelHCF.Context.tt</DependentUpon>
+      <DependentUpon>ModelCourage.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ModelHCF.cs">
+    <Compile Include="DB\ModelCourage.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ModelHCF.Designer.cs">
+    <Compile Include="DB\ModelCourage.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelHCF.edmx</DependentUpon>
+      <DependentUpon>ModelCourage.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Modulos.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\ModulosPorCurso.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Preguntas.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\PreguntasPorPrueba.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Pruebas.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Respuestas.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Usuarios.cs">
-      <DependentUpon>ModelHCF.tt</DependentUpon>
+      <DependentUpon>ModelCourage.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -308,15 +308,15 @@
     <Content Include="css\smartadmin-rtl.min.css" />
     <Content Include="css\smartadmin-skins.min.css" />
     <Content Include="css\your_style.css" />
-    <Content Include="DB\ModelHCF.Context.tt">
+    <Content Include="DB\ModelCourage.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelHCF.edmx</DependentUpon>
-      <LastGenOutput>ModelHCF.Context.cs</LastGenOutput>
+      <DependentUpon>ModelCourage.edmx</DependentUpon>
+      <LastGenOutput>ModelCourage.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\ModelHCF.tt">
+    <Content Include="DB\ModelCourage.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelHCF.edmx</DependentUpon>
-      <LastGenOutput>ModelHCF.cs</LastGenOutput>
+      <DependentUpon>ModelCourage.edmx</DependentUpon>
+      <LastGenOutput>ModelCourage.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome\fontawesome-webfont.svg" />
@@ -963,12 +963,12 @@
     <Content Include="js\plugin\datetimepicker-master\doc.tpl" />
     <Content Include="js\plugin\datetimepicker-master\package.json" />
     <Content Include="js\plugin\datetimepicker-master\README.md" />
-    <EntityDeploy Include="DB\ModelHCF.edmx">
+    <EntityDeploy Include="DB\ModelCourage.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelHCF.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelCourage.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DB\ModelHCF.edmx.diagram">
-      <DependentUpon>ModelHCF.edmx</DependentUpon>
+    <Content Include="DB\ModelCourage.edmx.diagram">
+      <DependentUpon>ModelCourage.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1040,6 +1040,9 @@
     <Content Include="Views\Cursos\Details.cshtml" />
     <Content Include="Views\Cursos\Edit.cshtml" />
     <Content Include="Views\Cursos\Index.cshtml" />
+    <Content Include="Views\Usuario\EditarInfoUsuario.cshtml" />
+    <Content Include="Views\Usuario\EditarCuentaUsuario.cshtml" />
+    <Content Include="Views\Usuario\ResetContrasena.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

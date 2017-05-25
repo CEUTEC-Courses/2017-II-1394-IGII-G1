@@ -65,7 +65,6 @@ namespace ProyectoSoft2.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
            // return RedirectToAction("Index", "Home");
