@@ -42,7 +42,6 @@ namespace ProyectoSoft2.DB
         public virtual DbSet<PreguntasPorPrueba> PreguntasPorPrueba { get; set; }
         public virtual DbSet<Pruebas> Pruebas { get; set; }
         public virtual DbSet<Respuestas> Respuestas { get; set; }
-        public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }

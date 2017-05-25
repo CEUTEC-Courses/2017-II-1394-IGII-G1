@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CourageproModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="courageproModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -159,23 +159,15 @@
           <Property Name="IdPregunta" Type="int" />
           <Property Name="Descripcion" Type="varchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="TipoUsuario">
-          <Key>
-            <PropertyRef Name="IdTipoUsuario" />
-          </Key>
-          <Property Name="IdTipoUsuario" Type="int" Nullable="false" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
-        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="IdUsuario" />
           </Key>
           <Property Name="IdUsuario" Type="int" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="255" />
-          <Property Name="Apellido" Type="varchar" MaxLength="255" />
-          <Property Name="FechaNacimiento" Type="date" />
-          <Property Name="IdTipoUsuario" Type="int" />
-          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <Association Name="FK__AlumnoPor__IdCur__7A672E12">
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
@@ -345,30 +337,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Usuarios__IdAspN__72C60C4A">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdAspNetUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Usuarios__IdTipo__71D1E811">
-          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoUsuario">
-              <PropertyRef Name="IdTipoUsuario" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdTipoUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -425,7 +393,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CourageproModelStoreContainer">
+        <Association Name="Fk_Usuario_IdAspnetUser">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdAspNetUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="courageproModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AlumnoPorCurso" EntityType="Self.AlumnoPorCurso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
@@ -444,7 +424,6 @@
           <EntitySet Name="PreguntasPorPrueba" EntityType="Self.PreguntasPorPrueba" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pruebas" EntityType="Self.Pruebas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Respuestas" EntityType="Self.Respuestas" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__AlumnoPor__IdCur__7A672E12" Association="Self.FK__AlumnoPor__IdCur__7A672E12">
             <End Role="Cursos" EntitySet="Cursos" />
@@ -502,14 +481,6 @@
             <End Role="Preguntas" EntitySet="Preguntas" />
             <End Role="Respuestas" EntitySet="Respuestas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdAspN__72C60C4A" Association="Self.FK__Usuarios__IdAspN__72C60C4A">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdTipo__71D1E811" Association="Self.FK__Usuarios__IdTipo__71D1E811">
-            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -526,12 +497,15 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
+          <AssociationSet Name="Fk_Usuario_IdAspnetUser" Association="Self.Fk_Usuario_IdAspnetUser">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CourageproModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="courageproModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -550,7 +524,7 @@
           <Property Name="IdUsuario" Type="Int32" />
           <Property Name="IdCurso" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cursos" Relationship="Self.FK__AlumnoPor__IdCur__7A672E12" FromRole="AlumnoPorCurso" ToRole="Cursos" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__AlumnoPor__IdUsu__797309D9" FromRole="AlumnoPorCurso" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios" Relationship="courageproModel.FK__AlumnoPor__IdUsu__797309D9" FromRole="AlumnoPorCurso" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Areas">
           <Key>
@@ -618,8 +592,8 @@
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__IdAspN__72C60C4A" FromRole="AspNetUsers" ToRole="Usuarios" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="Usuarios" Relationship="courageproModel.Fk_Usuario_IdAspnetUser" FromRole="AspNetUsers" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Centros">
           <Key>
@@ -650,7 +624,7 @@
           <Property Name="IdUsuario" Type="Int32" />
           <Property Name="IdCurso" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cursos" Relationship="Self.FK__Instructo__IdCur__76969D2E" FromRole="InstructorPorCurso" ToRole="Cursos" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Instructo__IdUsu__75A278F5" FromRole="InstructorPorCurso" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios" Relationship="courageproModel.FK__Instructo__IdUsu__75A278F5" FromRole="InstructorPorCurso" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Modulos">
           <Key>
@@ -711,29 +685,6 @@
           <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Preguntas" Relationship="Self.FK__Respuesta__IdPre__628FA481" FromRole="Respuestas" ToRole="Preguntas" />
         </EntityType>
-        <EntityType Name="TipoUsuario">
-          <Key>
-            <PropertyRef Name="IdTipoUsuario" />
-          </Key>
-          <Property Name="IdTipoUsuario" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__IdTipo__71D1E811" FromRole="TipoUsuario" ToRole="Usuarios" />
-        </EntityType>
-        <EntityType Name="Usuarios">
-          <Key>
-            <PropertyRef Name="IdUsuario" />
-          </Key>
-          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
-          <Property Name="IdTipoUsuario" Type="Int32" />
-          <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AlumnoPorCurso" Relationship="Self.FK__AlumnoPor__IdUsu__797309D9" FromRole="Usuarios" ToRole="AlumnoPorCurso" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Usuarios__IdAspN__72C60C4A" FromRole="Usuarios" ToRole="AspNetUsers" />
-          <NavigationProperty Name="InstructorPorCurso" Relationship="Self.FK__Instructo__IdUsu__75A278F5" FromRole="Usuarios" ToRole="InstructorPorCurso" />
-          <NavigationProperty Name="TipoUsuario" Relationship="Self.FK__Usuarios__IdTipo__71D1E811" FromRole="Usuarios" ToRole="TipoUsuario" />
-        </EntityType>
         <Association Name="FK__AlumnoPor__IdCur__7A672E12">
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
           <End Role="AlumnoPorCurso" Type="Self.AlumnoPorCurso" Multiplicity="*" />
@@ -743,18 +694,6 @@
             </Principal>
             <Dependent Role="AlumnoPorCurso">
               <PropertyRef Name="IdCurso" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__AlumnoPor__IdUsu__797309D9">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="AlumnoPorCurso" Type="Self.AlumnoPorCurso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="IdUsuario" />
-            </Principal>
-            <Dependent Role="AlumnoPorCurso">
-              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -822,18 +761,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Usuarios__IdAspN__72C60C4A">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdAspNetUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Instructo__IdCur__76969D2E">
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
           <End Role="InstructorPorCurso" Type="Self.InstructorPorCurso" Multiplicity="*" />
@@ -855,18 +782,6 @@
             </Principal>
             <Dependent Role="ModulosPorCurso">
               <PropertyRef Name="IdCurso" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Instructo__IdUsu__75A278F5">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="InstructorPorCurso" Type="Self.InstructorPorCurso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="IdUsuario" />
-            </Principal>
-            <Dependent Role="InstructorPorCurso">
-              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -942,18 +857,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Usuarios__IdTipo__71D1E811">
-          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoUsuario">
-              <PropertyRef Name="IdTipoUsuario" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdTipoUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="AspNetUserRoles">
           <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
@@ -976,14 +879,8 @@
           <EntitySet Name="PreguntasPorPrueba" EntityType="Self.PreguntasPorPrueba" />
           <EntitySet Name="Pruebas" EntityType="Self.Pruebas" />
           <EntitySet Name="Respuestas" EntityType="Self.Respuestas" />
-          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
-          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
           <AssociationSet Name="FK__AlumnoPor__IdCur__7A672E12" Association="Self.FK__AlumnoPor__IdCur__7A672E12">
             <End Role="Cursos" EntitySet="Cursos" />
-            <End Role="AlumnoPorCurso" EntitySet="AlumnoPorCurso" />
-          </AssociationSet>
-          <AssociationSet Name="FK__AlumnoPor__IdUsu__797309D9" Association="Self.FK__AlumnoPor__IdUsu__797309D9">
-            <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="AlumnoPorCurso" EntitySet="AlumnoPorCurso" />
           </AssociationSet>
           <AssociationSet Name="FK__AreasPorC__IdAre__534D60F1" Association="Self.FK__AreasPorC__IdAre__534D60F1">
@@ -1006,10 +903,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdAspN__72C60C4A" Association="Self.FK__Usuarios__IdAspN__72C60C4A">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
           <AssociationSet Name="FK__Instructo__IdCur__76969D2E" Association="Self.FK__Instructo__IdCur__76969D2E">
             <End Role="Cursos" EntitySet="Cursos" />
             <End Role="InstructorPorCurso" EntitySet="InstructorPorCurso" />
@@ -1017,10 +910,6 @@
           <AssociationSet Name="FK__ModulosPo__IdCur__5CD6CB2B" Association="Self.FK__ModulosPo__IdCur__5CD6CB2B">
             <End Role="Cursos" EntitySet="Cursos" />
             <End Role="ModulosPorCurso" EntitySet="ModulosPorCurso" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Instructo__IdUsu__75A278F5" Association="Self.FK__Instructo__IdUsu__75A278F5">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="InstructorPorCurso" EntitySet="InstructorPorCurso" />
           </AssociationSet>
           <AssociationSet Name="FK__ModulosPo__IdMod__5BE2A6F2" Association="Self.FK__ModulosPo__IdMod__5BE2A6F2">
             <End Role="Modulos" EntitySet="Modulos" />
@@ -1046,23 +935,81 @@
             <End Role="Pruebas" EntitySet="Pruebas" />
             <End Role="PreguntasPorPrueba" EntitySet="PreguntasPorPrueba" />
           </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdTipo__71D1E811" Association="Self.FK__Usuarios__IdTipo__71D1E811">
-            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="Usuarios" EntityType="courageproModel.Usuarios" />
+          <AssociationSet Name="FK__AlumnoPor__IdUsu__797309D9" Association="courageproModel.FK__AlumnoPor__IdUsu__797309D9">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="AlumnoPorCurso" EntitySet="AlumnoPorCurso" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Usuario_IdAspnetUser" Association="courageproModel.Fk_Usuario_IdAspnetUser">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Instructo__IdUsu__75A278F5" Association="courageproModel.FK__Instructo__IdUsu__75A278F5">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="InstructorPorCurso" EntitySet="InstructorPorCurso" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AlumnoPorCurso" Relationship="courageproModel.FK__AlumnoPor__IdUsu__797309D9" FromRole="Usuarios" ToRole="AlumnoPorCurso" />
+          <NavigationProperty Name="AspNetUsers" Relationship="courageproModel.Fk_Usuario_IdAspnetUser" FromRole="Usuarios" ToRole="AspNetUsers" />
+          <NavigationProperty Name="InstructorPorCurso" Relationship="courageproModel.FK__Instructo__IdUsu__75A278F5" FromRole="Usuarios" ToRole="InstructorPorCurso" />
+        </EntityType>
+        <Association Name="FK__AlumnoPor__IdUsu__797309D9">
+          <End Type="courageproModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="courageproModel.AlumnoPorCurso" Role="AlumnoPorCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="AlumnoPorCurso">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Usuario_IdAspnetUser">
+          <End Type="courageproModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="courageproModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdAspNetUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Instructo__IdUsu__75A278F5">
+          <End Type="courageproModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="courageproModel.InstructorPorCurso" Role="InstructorPorCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="InstructorPorCurso">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CourageproModelStoreContainer" CdmEntityContainer="courageproEntities">
+        <EntityContainerMapping StorageEntityContainer="courageproModelStoreContainer" CdmEntityContainer="courageproEntities">
           <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="CourageproModel.C__MigrationHistory">
+            <EntityTypeMapping TypeName="courageproModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
                 <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
                 <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
@@ -1072,7 +1019,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AlumnoPorCurso">
-            <EntityTypeMapping TypeName="CourageproModel.AlumnoPorCurso">
+            <EntityTypeMapping TypeName="courageproModel.AlumnoPorCurso">
               <MappingFragment StoreEntitySet="AlumnoPorCurso">
                 <ScalarProperty Name="IdAlumnoPorCurso" ColumnName="IdAlumnoPorCurso" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
@@ -1081,7 +1028,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Areas">
-            <EntityTypeMapping TypeName="CourageproModel.Areas">
+            <EntityTypeMapping TypeName="courageproModel.Areas">
               <MappingFragment StoreEntitySet="Areas">
                 <ScalarProperty Name="IdArea" ColumnName="IdArea" />
                 <ScalarProperty Name="NombreArea" ColumnName="NombreArea" />
@@ -1089,7 +1036,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AreasPorCentro">
-            <EntityTypeMapping TypeName="CourageproModel.AreasPorCentro">
+            <EntityTypeMapping TypeName="courageproModel.AreasPorCentro">
               <MappingFragment StoreEntitySet="AreasPorCentro">
                 <ScalarProperty Name="IdAreasPorCentro" ColumnName="IdAreasPorCentro" />
                 <ScalarProperty Name="IdArea" ColumnName="IdArea" />
@@ -1098,7 +1045,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="CourageproModel.AspNetRoles">
+            <EntityTypeMapping TypeName="courageproModel.AspNetRoles">
               <MappingFragment StoreEntitySet="AspNetRoles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1106,7 +1053,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="CourageproModel.AspNetUserClaims">
+            <EntityTypeMapping TypeName="courageproModel.AspNetUserClaims">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -1116,7 +1063,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="CourageproModel.AspNetUserLogins">
+            <EntityTypeMapping TypeName="courageproModel.AspNetUserLogins">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
                 <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
                 <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -1125,7 +1072,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="CourageproModel.AspNetUsers">
+            <EntityTypeMapping TypeName="courageproModel.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -1143,7 +1090,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Centros">
-            <EntityTypeMapping TypeName="CourageproModel.Centros">
+            <EntityTypeMapping TypeName="courageproModel.Centros">
               <MappingFragment StoreEntitySet="Centros">
                 <ScalarProperty Name="IdCentro" ColumnName="IdCentro" />
                 <ScalarProperty Name="NombreCentro" ColumnName="NombreCentro" />
@@ -1152,7 +1099,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cursos">
-            <EntityTypeMapping TypeName="CourageproModel.Cursos">
+            <EntityTypeMapping TypeName="courageproModel.Cursos">
               <MappingFragment StoreEntitySet="Cursos">
                 <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
                 <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
@@ -1161,7 +1108,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="InstructorPorCurso">
-            <EntityTypeMapping TypeName="CourageproModel.InstructorPorCurso">
+            <EntityTypeMapping TypeName="courageproModel.InstructorPorCurso">
               <MappingFragment StoreEntitySet="InstructorPorCurso">
                 <ScalarProperty Name="IdInstructorPorCurso" ColumnName="IdInstructorPorCurso" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
@@ -1170,7 +1117,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Modulos">
-            <EntityTypeMapping TypeName="CourageproModel.Modulos">
+            <EntityTypeMapping TypeName="courageproModel.Modulos">
               <MappingFragment StoreEntitySet="Modulos">
                 <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
                 <ScalarProperty Name="NombreModulo" ColumnName="NombreModulo" />
@@ -1178,7 +1125,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ModulosPorCurso">
-            <EntityTypeMapping TypeName="CourageproModel.ModulosPorCurso">
+            <EntityTypeMapping TypeName="courageproModel.ModulosPorCurso">
               <MappingFragment StoreEntitySet="ModulosPorCurso">
                 <ScalarProperty Name="IdModuloPorCurso" ColumnName="IdModuloPorCurso" />
                 <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
@@ -1187,7 +1134,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Preguntas">
-            <EntityTypeMapping TypeName="CourageproModel.Preguntas">
+            <EntityTypeMapping TypeName="courageproModel.Preguntas">
               <MappingFragment StoreEntitySet="Preguntas">
                 <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
                 <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
@@ -1196,7 +1143,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PreguntasPorPrueba">
-            <EntityTypeMapping TypeName="CourageproModel.PreguntasPorPrueba">
+            <EntityTypeMapping TypeName="courageproModel.PreguntasPorPrueba">
               <MappingFragment StoreEntitySet="PreguntasPorPrueba">
                 <ScalarProperty Name="IdPreguntasPorPrueba" ColumnName="IdPreguntasPorPrueba" />
                 <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
@@ -1205,7 +1152,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pruebas">
-            <EntityTypeMapping TypeName="CourageproModel.Pruebas">
+            <EntityTypeMapping TypeName="courageproModel.Pruebas">
               <MappingFragment StoreEntitySet="Pruebas">
                 <ScalarProperty Name="IdPrueba" ColumnName="IdPrueba" />
                 <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
@@ -1213,7 +1160,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Respuestas">
-            <EntityTypeMapping TypeName="CourageproModel.Respuestas">
+            <EntityTypeMapping TypeName="courageproModel.Respuestas">
               <MappingFragment StoreEntitySet="Respuestas">
                 <ScalarProperty Name="IdRespuesta" ColumnName="IdRespuesta" />
                 <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
@@ -1221,27 +1168,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TipoUsuario">
-            <EntityTypeMapping TypeName="CourageproModel.TipoUsuario">
-              <MappingFragment StoreEntitySet="TipoUsuario">
-                <ScalarProperty Name="IdTipoUsuario" ColumnName="IdTipoUsuario" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="CourageproModel.Usuarios">
-              <MappingFragment StoreEntitySet="Usuarios">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
-                <ScalarProperty Name="IdTipoUsuario" ColumnName="IdTipoUsuario" />
-                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="CourageproModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="courageproModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
@@ -1249,6 +1176,17 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="courageproModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

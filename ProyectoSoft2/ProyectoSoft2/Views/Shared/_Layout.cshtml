@@ -27,7 +27,7 @@
     <link rel="apple-touch-icon" sizes="152x152" href="~/img/splash/touch-icon-ipad-retina.png">
     <link href="~/js/plugin/datetimepicker-master/build/jquery.datetimepicker.min.css" rel="stylesheet" />
     <link href="~/css/layout.css" rel="stylesheet" />
-    <link href="~/Content/chosen/chosen.css" rel="stylesheet" />
+   
 
 
     <!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
@@ -61,12 +61,12 @@
         </div>
     </div>
 
-    <div id="MyModal" class="modal fade" role="dialog" style="z-index:1000000;">
+    <div id="MyModal" class="modal fade" role="dialog" data-backdrop='static' data-keyboard="false">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal"> <big>&times;</big></button>
                     <h4 class="modal-title" id="MyModalTitle">Modal Header</h4>
                 </div>
                 <div class="modal-body" id="MyModalBody">
@@ -236,11 +236,18 @@
                     <a href="@Url.Action("Index","Home")" title="blank_"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">  Inicio</span></a>
                 </li>
                 <li>
-                    <a href="#" title="Test"><i class="fa fa-fw fa-file-text"></i><span class="menu-item-parent">  Test</span></a>
+                    <a href="#" title="Test"><i class="fa fa-fw fa-user"></i><span class="menu-item-parent">  Gestion Usuarios</span></a>
                     <ul>
                         <li class="">
-                            <a href="@Url.Action("","")" title="Test"><span class="menu-item-parent"> Test</span></a>
-                        </li>      
+                            <a href="@Url.Action("Index","Usuario")" title="Usuario"><span class="menu-item-parent"> Usuarios</span></a>
+                        </li>
+                        <li class="">
+                            <a href="@Url.Action("Index","Role")" title="Usuario"><span class="menu-item-parent"> Roles</span></a>
+                        </li>
+                        <li class="">
+                            <a href="@Url.Action("VerTiposUsuarios","Usuario")" title="Usuario"><span class="menu-item-parent"> Tipo de Usuarios</span></a>
+                        </li>
+
                     </ul>
                 </li>
             </ul>    
@@ -317,9 +324,9 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/smartadmin")
     @Scripts.Render("~/bundles/personalized")
-    <script src="~/js/plugin/datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
+    @*<script src="~/js/plugin/datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
     <script src="~/Scripts/moment-with-locales.js"></script>
-    <script src="~/js/plugin/bootbox/bootbox.js"></script>
+    <script src="~/js/plugin/bootbox/bootbox.js"></script>*@
 
     @RenderSection("scripts", required: false)
 

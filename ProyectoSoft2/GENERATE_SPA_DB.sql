@@ -69,7 +69,7 @@ IdPrueba int FOREIGN KEY REFERENCES Pruebas(IdPrueba) not null,
 
 create table Usuarios
 (
-IdUsuario int not null primary key,
+IdUsuario int not null primary key Identity(1,1),
 Nombre VARCHAR(255),
 Apellido VARCHAR(255),
 FechaNacimiento date,
