@@ -201,8 +201,10 @@
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CentrosController.cs" />
+    <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ModulosController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DB\AlumnoPorCurso.cs">
@@ -1028,6 +1030,16 @@
     <Content Include="Views\Centros\Details.cshtml" />
     <Content Include="Views\Centros\Edit.cshtml" />
     <Content Include="Views\Centros\Index.cshtml" />
+    <Content Include="Views\Modulos\Create.cshtml" />
+    <Content Include="Views\Modulos\Delete.cshtml" />
+    <Content Include="Views\Modulos\Details.cshtml" />
+    <Content Include="Views\Modulos\Edit.cshtml" />
+    <Content Include="Views\Modulos\Index.cshtml" />
+    <Content Include="Views\Cursos\Create.cshtml" />
+    <Content Include="Views\Cursos\Delete.cshtml" />
+    <Content Include="Views\Cursos\Details.cshtml" />
+    <Content Include="Views\Cursos\Edit.cshtml" />
+    <Content Include="Views\Cursos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
