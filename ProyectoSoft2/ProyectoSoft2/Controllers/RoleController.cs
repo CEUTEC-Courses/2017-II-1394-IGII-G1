@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace ProyectoSoft2.Controllers
 {
+    [Authorize]
     public class RoleController : Controller
     {
         // GET: Role
