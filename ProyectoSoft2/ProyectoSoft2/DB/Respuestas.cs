@@ -15,7 +15,7 @@ namespace ProyectoSoft2.DB
     public partial class Respuestas
     {
         public int IdRespuesta { get; set; }
-        public Nullable<int> IdPregunta { get; set; }
+        public int IdPregunta { get; set; }
         public string Descripcion { get; set; }
     
         public virtual Preguntas Preguntas { get; set; }

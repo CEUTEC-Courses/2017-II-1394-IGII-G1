@@ -35,14 +35,14 @@ function ShowboxSuccess(message, title) {
     });
 }
 
-function ShowSmartAlert(Title, message, Funcion) {
+function ShowSmartAlertEliminar(Title, message, Funcion, parametro) {
     $.SmartMessageBox({
-        title: Title,
+        title:"<i class='fa fa-times fa-2x fadeInRight animated fa-fw text-danger'></i>"+ Title,
         content: message,
-        buttons: '[No][Yes]'
+        buttons: '[No][Si]'
     }, function (ButtonPressed) {
-        if (ButtonPressed === "Yes") {
-            Funcion();
+        if (ButtonPressed === "Si") {
+            Funcion(parametro);
         }
         if (ButtonPressed === "No") {
 

@@ -15,7 +15,7 @@ namespace ProyectoSoft2.DB
     public partial class InstructorPorCurso
     {
         public int IdInstructorPorCurso { get; set; }
-        public Nullable<int> IdUsuario { get; set; }
+        public int IdUsuario { get; set; }
         public int IdCurso { get; set; }
     
         public virtual Cursos Cursos { get; set; }

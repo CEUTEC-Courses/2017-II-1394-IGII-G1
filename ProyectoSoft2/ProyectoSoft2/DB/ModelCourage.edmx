@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CourageproModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="courageproModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -19,22 +19,22 @@
           <Key>
             <PropertyRef Name="IdAlumnoPorCurso" />
           </Key>
-          <Property Name="IdAlumnoPorCurso" Type="int" Nullable="false" />
-          <Property Name="IdUsuario" Type="int" />
+          <Property Name="IdAlumnoPorCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
           <Property Name="IdCurso" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Areas">
           <Key>
             <PropertyRef Name="IdArea" />
           </Key>
-          <Property Name="IdArea" Type="int" Nullable="false" />
+          <Property Name="IdArea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreArea" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="AreasPorCentro">
           <Key>
             <PropertyRef Name="IdAreasPorCentro" />
           </Key>
-          <Property Name="IdAreasPorCentro" Type="int" Nullable="false" />
+          <Property Name="IdAreasPorCentro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdArea" Type="int" Nullable="false" />
           <Property Name="IdCentro" Type="int" Nullable="false" />
         </EntityType>
@@ -93,15 +93,15 @@
           <Key>
             <PropertyRef Name="IdCentro" />
           </Key>
-          <Property Name="IdCentro" Type="int" Nullable="false" />
+          <Property Name="IdCentro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreCentro" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="Direccion" Type="varchar" MaxLength="255" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="Cursos">
           <Key>
             <PropertyRef Name="IdCurso" />
           </Key>
-          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="IdCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreCurso" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="IdArea" Type="int" Nullable="false" />
         </EntityType>
@@ -109,22 +109,22 @@
           <Key>
             <PropertyRef Name="IdInstructorPorCurso" />
           </Key>
-          <Property Name="IdInstructorPorCurso" Type="int" Nullable="false" />
-          <Property Name="IdUsuario" Type="int" />
+          <Property Name="IdInstructorPorCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
           <Property Name="IdCurso" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Modulos">
           <Key>
             <PropertyRef Name="IdModulo" />
           </Key>
-          <Property Name="IdModulo" Type="int" Nullable="false" />
+          <Property Name="IdModulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreModulo" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="ModulosPorCurso">
           <Key>
             <PropertyRef Name="IdModuloPorCurso" />
           </Key>
-          <Property Name="IdModuloPorCurso" Type="int" Nullable="false" />
+          <Property Name="IdModuloPorCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdModulo" Type="int" Nullable="false" />
           <Property Name="IdCurso" Type="int" Nullable="false" />
         </EntityType>
@@ -132,15 +132,15 @@
           <Key>
             <PropertyRef Name="IdPregunta" />
           </Key>
-          <Property Name="IdPregunta" Type="int" Nullable="false" />
+          <Property Name="IdPregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdModulo" Type="int" Nullable="false" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="PreguntasPorPrueba">
           <Key>
             <PropertyRef Name="IdPreguntasPorPrueba" />
           </Key>
-          <Property Name="IdPreguntasPorPrueba" Type="int" Nullable="false" />
+          <Property Name="IdPreguntasPorPrueba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdPregunta" Type="int" Nullable="false" />
           <Property Name="IdPrueba" Type="int" Nullable="false" />
         </EntityType>
@@ -148,36 +148,28 @@
           <Key>
             <PropertyRef Name="IdPrueba" />
           </Key>
-          <Property Name="IdPrueba" Type="int" Nullable="false" />
+          <Property Name="IdPrueba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdModulo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Respuestas">
           <Key>
             <PropertyRef Name="IdRespuesta" />
           </Key>
-          <Property Name="IdRespuesta" Type="int" Nullable="false" />
-          <Property Name="IdPregunta" Type="int" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
-        </EntityType>
-        <EntityType Name="TipoUsuario">
-          <Key>
-            <PropertyRef Name="IdTipoUsuario" />
-          </Key>
-          <Property Name="IdTipoUsuario" Type="int" Nullable="false" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="IdRespuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPregunta" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="IdUsuario" />
           </Key>
-          <Property Name="IdUsuario" Type="int" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="255" />
-          <Property Name="Apellido" Type="varchar" MaxLength="255" />
-          <Property Name="FechaNacimiento" Type="date" />
-          <Property Name="IdTipoUsuario" Type="int" />
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
           <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
         </EntityType>
-        <Association Name="FK__AlumnoPor__IdCur__7A672E12">
+        <Association Name="FK__AlumnoPor__IdCur__282DF8C2">
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
           <End Role="AlumnoPorCurso" Type="Self.AlumnoPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -189,8 +181,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AlumnoPor__IdUsu__797309D9">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+        <Association Name="FK__AlumnoPor__IdUsu__2739D489">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
           <End Role="AlumnoPorCurso" Type="Self.AlumnoPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
@@ -201,7 +193,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AreasPorC__IdAre__534D60F1">
+        <Association Name="FK__AreasPorC__IdAre__08B54D69">
           <End Role="Areas" Type="Self.Areas" Multiplicity="1" />
           <End Role="AreasPorCentro" Type="Self.AreasPorCentro" Multiplicity="*" />
           <ReferentialConstraint>
@@ -213,7 +205,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AreasPorC__IdCen__5441852A">
+        <Association Name="FK__AreasPorC__IdCen__09A971A2">
           <End Role="Centros" Type="Self.Centros" Multiplicity="1" />
           <End Role="AreasPorCentro" Type="Self.AreasPorCentro" Multiplicity="*" />
           <ReferentialConstraint>
@@ -225,7 +217,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cursos__IdArea__571DF1D5">
+        <Association Name="FK__Cursos__IdArea__0C85DE4D">
           <End Role="Areas" Type="Self.Areas" Multiplicity="1" />
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -237,7 +229,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Instructo__IdCur__76969D2E">
+        <Association Name="FK__Instructo__IdCur__245D67DE">
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
           <End Role="InstructorPorCurso" Type="Self.InstructorPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -249,8 +241,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Instructo__IdUsu__75A278F5">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+        <Association Name="FK__Instructo__IdUsu__236943A5">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
           <End Role="InstructorPorCurso" Type="Self.InstructorPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
@@ -261,7 +253,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModulosPo__IdCur__5CD6CB2B">
+        <Association Name="FK__ModulosPo__IdCur__123EB7A3">
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
           <End Role="ModulosPorCurso" Type="Self.ModulosPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -273,7 +265,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModulosPo__IdMod__5BE2A6F2">
+        <Association Name="FK__ModulosPo__IdMod__114A936A">
           <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
           <End Role="ModulosPorCurso" Type="Self.ModulosPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -285,7 +277,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Preguntas__IdMod__5FB337D6">
+        <Association Name="FK__Preguntas__IdMod__151B244E">
           <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
           <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -297,7 +289,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Preguntas__IdPre__68487DD7">
+        <Association Name="FK__Preguntas__IdPre__1DB06A4F">
           <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="1" />
           <End Role="PreguntasPorPrueba" Type="Self.PreguntasPorPrueba" Multiplicity="*" />
           <ReferentialConstraint>
@@ -309,7 +301,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Preguntas__IdPru__693CA210">
+        <Association Name="FK__Preguntas__IdPru__1EA48E88">
           <End Role="Pruebas" Type="Self.Pruebas" Multiplicity="1" />
           <End Role="PreguntasPorPrueba" Type="Self.PreguntasPorPrueba" Multiplicity="*" />
           <ReferentialConstraint>
@@ -321,7 +313,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pruebas__IdModul__656C112C">
+        <Association Name="FK__Pruebas__IdModul__1AD3FDA4">
           <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
           <End Role="Pruebas" Type="Self.Pruebas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -333,8 +325,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Respuesta__IdPre__628FA481">
-          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="0..1" />
+        <Association Name="FK__Respuesta__IdPre__17F790F9">
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="1" />
           <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Preguntas">
@@ -342,30 +334,6 @@
             </Principal>
             <Dependent Role="Respuestas">
               <PropertyRef Name="IdPregunta" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Usuarios__IdAspN__72C60C4A">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdAspNetUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Usuarios__IdTipo__71D1E811">
-          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoUsuario">
-              <PropertyRef Name="IdTipoUsuario" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdTipoUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -425,7 +393,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CourageproModelStoreContainer">
+        <Association Name="FK_Usuario_IdAspUser">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdAspNetUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="courageproModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AlumnoPorCurso" EntityType="Self.AlumnoPorCurso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
@@ -444,71 +424,62 @@
           <EntitySet Name="PreguntasPorPrueba" EntityType="Self.PreguntasPorPrueba" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pruebas" EntityType="Self.Pruebas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Respuestas" EntityType="Self.Respuestas" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__AlumnoPor__IdCur__7A672E12" Association="Self.FK__AlumnoPor__IdCur__7A672E12">
+          <AssociationSet Name="FK__AlumnoPor__IdCur__282DF8C2" Association="Self.FK__AlumnoPor__IdCur__282DF8C2">
             <End Role="Cursos" EntitySet="Cursos" />
             <End Role="AlumnoPorCurso" EntitySet="AlumnoPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__AlumnoPor__IdUsu__797309D9" Association="Self.FK__AlumnoPor__IdUsu__797309D9">
+          <AssociationSet Name="FK__AlumnoPor__IdUsu__2739D489" Association="Self.FK__AlumnoPor__IdUsu__2739D489">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="AlumnoPorCurso" EntitySet="AlumnoPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__AreasPorC__IdAre__534D60F1" Association="Self.FK__AreasPorC__IdAre__534D60F1">
+          <AssociationSet Name="FK__AreasPorC__IdAre__08B54D69" Association="Self.FK__AreasPorC__IdAre__08B54D69">
             <End Role="Areas" EntitySet="Areas" />
             <End Role="AreasPorCentro" EntitySet="AreasPorCentro" />
           </AssociationSet>
-          <AssociationSet Name="FK__AreasPorC__IdCen__5441852A" Association="Self.FK__AreasPorC__IdCen__5441852A">
+          <AssociationSet Name="FK__AreasPorC__IdCen__09A971A2" Association="Self.FK__AreasPorC__IdCen__09A971A2">
             <End Role="Centros" EntitySet="Centros" />
             <End Role="AreasPorCentro" EntitySet="AreasPorCentro" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cursos__IdArea__571DF1D5" Association="Self.FK__Cursos__IdArea__571DF1D5">
+          <AssociationSet Name="FK__Cursos__IdArea__0C85DE4D" Association="Self.FK__Cursos__IdArea__0C85DE4D">
             <End Role="Areas" EntitySet="Areas" />
             <End Role="Cursos" EntitySet="Cursos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Instructo__IdCur__76969D2E" Association="Self.FK__Instructo__IdCur__76969D2E">
+          <AssociationSet Name="FK__Instructo__IdCur__245D67DE" Association="Self.FK__Instructo__IdCur__245D67DE">
             <End Role="Cursos" EntitySet="Cursos" />
             <End Role="InstructorPorCurso" EntitySet="InstructorPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__Instructo__IdUsu__75A278F5" Association="Self.FK__Instructo__IdUsu__75A278F5">
+          <AssociationSet Name="FK__Instructo__IdUsu__236943A5" Association="Self.FK__Instructo__IdUsu__236943A5">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="InstructorPorCurso" EntitySet="InstructorPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModulosPo__IdCur__5CD6CB2B" Association="Self.FK__ModulosPo__IdCur__5CD6CB2B">
+          <AssociationSet Name="FK__ModulosPo__IdCur__123EB7A3" Association="Self.FK__ModulosPo__IdCur__123EB7A3">
             <End Role="Cursos" EntitySet="Cursos" />
             <End Role="ModulosPorCurso" EntitySet="ModulosPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModulosPo__IdMod__5BE2A6F2" Association="Self.FK__ModulosPo__IdMod__5BE2A6F2">
+          <AssociationSet Name="FK__ModulosPo__IdMod__114A936A" Association="Self.FK__ModulosPo__IdMod__114A936A">
             <End Role="Modulos" EntitySet="Modulos" />
             <End Role="ModulosPorCurso" EntitySet="ModulosPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__Preguntas__IdMod__5FB337D6" Association="Self.FK__Preguntas__IdMod__5FB337D6">
+          <AssociationSet Name="FK__Preguntas__IdMod__151B244E" Association="Self.FK__Preguntas__IdMod__151B244E">
             <End Role="Modulos" EntitySet="Modulos" />
             <End Role="Preguntas" EntitySet="Preguntas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Preguntas__IdPre__68487DD7" Association="Self.FK__Preguntas__IdPre__68487DD7">
+          <AssociationSet Name="FK__Preguntas__IdPre__1DB06A4F" Association="Self.FK__Preguntas__IdPre__1DB06A4F">
             <End Role="Preguntas" EntitySet="Preguntas" />
             <End Role="PreguntasPorPrueba" EntitySet="PreguntasPorPrueba" />
           </AssociationSet>
-          <AssociationSet Name="FK__Preguntas__IdPru__693CA210" Association="Self.FK__Preguntas__IdPru__693CA210">
+          <AssociationSet Name="FK__Preguntas__IdPru__1EA48E88" Association="Self.FK__Preguntas__IdPru__1EA48E88">
             <End Role="Pruebas" EntitySet="Pruebas" />
             <End Role="PreguntasPorPrueba" EntitySet="PreguntasPorPrueba" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pruebas__IdModul__656C112C" Association="Self.FK__Pruebas__IdModul__656C112C">
+          <AssociationSet Name="FK__Pruebas__IdModul__1AD3FDA4" Association="Self.FK__Pruebas__IdModul__1AD3FDA4">
             <End Role="Modulos" EntitySet="Modulos" />
             <End Role="Pruebas" EntitySet="Pruebas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Respuesta__IdPre__628FA481" Association="Self.FK__Respuesta__IdPre__628FA481">
+          <AssociationSet Name="FK__Respuesta__IdPre__17F790F9" Association="Self.FK__Respuesta__IdPre__17F790F9">
             <End Role="Preguntas" EntitySet="Preguntas" />
             <End Role="Respuestas" EntitySet="Respuestas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdAspN__72C60C4A" Association="Self.FK__Usuarios__IdAspN__72C60C4A">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdTipo__71D1E811" Association="Self.FK__Usuarios__IdTipo__71D1E811">
-            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -526,12 +497,16 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
+          <AssociationSet Name="FK_Usuario_IdAspUser" Association="Self.FK_Usuario_IdAspUser">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CourageproModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="courageproModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -546,30 +521,30 @@
           <Key>
             <PropertyRef Name="IdAlumnoPorCurso" />
           </Key>
-          <Property Name="IdAlumnoPorCurso" Type="Int32" Nullable="false" />
-          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="IdAlumnoPorCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
           <Property Name="IdCurso" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cursos" Relationship="Self.FK__AlumnoPor__IdCur__7A672E12" FromRole="AlumnoPorCurso" ToRole="Cursos" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__AlumnoPor__IdUsu__797309D9" FromRole="AlumnoPorCurso" ToRole="Usuarios" />
+          <NavigationProperty Name="Cursos" Relationship="Self.FK__AlumnoPor__IdCur__282DF8C2" FromRole="AlumnoPorCurso" ToRole="Cursos" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__AlumnoPor__IdUsu__2739D489" FromRole="AlumnoPorCurso" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Areas">
           <Key>
             <PropertyRef Name="IdArea" />
           </Key>
-          <Property Name="IdArea" Type="Int32" Nullable="false" />
+          <Property Name="IdArea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreArea" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="AreasPorCentro" Relationship="Self.FK__AreasPorC__IdAre__534D60F1" FromRole="Areas" ToRole="AreasPorCentro" />
-          <NavigationProperty Name="Cursos" Relationship="Self.FK__Cursos__IdArea__571DF1D5" FromRole="Areas" ToRole="Cursos" />
+          <NavigationProperty Name="AreasPorCentro" Relationship="Self.FK__AreasPorC__IdAre__08B54D69" FromRole="Areas" ToRole="AreasPorCentro" />
+          <NavigationProperty Name="Cursos" Relationship="Self.FK__Cursos__IdArea__0C85DE4D" FromRole="Areas" ToRole="Cursos" />
         </EntityType>
         <EntityType Name="AreasPorCentro">
           <Key>
             <PropertyRef Name="IdAreasPorCentro" />
           </Key>
-          <Property Name="IdAreasPorCentro" Type="Int32" Nullable="false" />
+          <Property Name="IdAreasPorCentro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdArea" Type="Int32" Nullable="false" />
           <Property Name="IdCentro" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Areas" Relationship="Self.FK__AreasPorC__IdAre__534D60F1" FromRole="AreasPorCentro" ToRole="Areas" />
-          <NavigationProperty Name="Centros" Relationship="Self.FK__AreasPorC__IdCen__5441852A" FromRole="AreasPorCentro" ToRole="Centros" />
+          <NavigationProperty Name="Areas" Relationship="Self.FK__AreasPorC__IdAre__08B54D69" FromRole="AreasPorCentro" ToRole="Areas" />
+          <NavigationProperty Name="Centros" Relationship="Self.FK__AreasPorC__IdCen__09A971A2" FromRole="AreasPorCentro" ToRole="Centros" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -618,123 +593,113 @@
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__IdAspN__72C60C4A" FromRole="AspNetUsers" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuario_IdAspUser" FromRole="AspNetUsers" ToRole="Usuarios" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
         <EntityType Name="Centros">
           <Key>
             <PropertyRef Name="IdCentro" />
           </Key>
-          <Property Name="IdCentro" Type="Int32" Nullable="false" />
+          <Property Name="IdCentro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreCentro" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="AreasPorCentro" Relationship="Self.FK__AreasPorC__IdCen__5441852A" FromRole="Centros" ToRole="AreasPorCentro" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AreasPorCentro" Relationship="Self.FK__AreasPorC__IdCen__09A971A2" FromRole="Centros" ToRole="AreasPorCentro" />
         </EntityType>
         <EntityType Name="Cursos">
           <Key>
             <PropertyRef Name="IdCurso" />
           </Key>
-          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreCurso" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdArea" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AlumnoPorCurso" Relationship="Self.FK__AlumnoPor__IdCur__7A672E12" FromRole="Cursos" ToRole="AlumnoPorCurso" />
-          <NavigationProperty Name="Areas" Relationship="Self.FK__Cursos__IdArea__571DF1D5" FromRole="Cursos" ToRole="Areas" />
-          <NavigationProperty Name="InstructorPorCurso" Relationship="Self.FK__Instructo__IdCur__76969D2E" FromRole="Cursos" ToRole="InstructorPorCurso" />
-          <NavigationProperty Name="ModulosPorCurso" Relationship="Self.FK__ModulosPo__IdCur__5CD6CB2B" FromRole="Cursos" ToRole="ModulosPorCurso" />
+          <NavigationProperty Name="AlumnoPorCurso" Relationship="Self.FK__AlumnoPor__IdCur__282DF8C2" FromRole="Cursos" ToRole="AlumnoPorCurso" />
+          <NavigationProperty Name="Areas" Relationship="Self.FK__Cursos__IdArea__0C85DE4D" FromRole="Cursos" ToRole="Areas" />
+          <NavigationProperty Name="InstructorPorCurso" Relationship="Self.FK__Instructo__IdCur__245D67DE" FromRole="Cursos" ToRole="InstructorPorCurso" />
+          <NavigationProperty Name="ModulosPorCurso" Relationship="Self.FK__ModulosPo__IdCur__123EB7A3" FromRole="Cursos" ToRole="ModulosPorCurso" />
         </EntityType>
         <EntityType Name="InstructorPorCurso">
           <Key>
             <PropertyRef Name="IdInstructorPorCurso" />
           </Key>
-          <Property Name="IdInstructorPorCurso" Type="Int32" Nullable="false" />
-          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="IdInstructorPorCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
           <Property Name="IdCurso" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cursos" Relationship="Self.FK__Instructo__IdCur__76969D2E" FromRole="InstructorPorCurso" ToRole="Cursos" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Instructo__IdUsu__75A278F5" FromRole="InstructorPorCurso" ToRole="Usuarios" />
+          <NavigationProperty Name="Cursos" Relationship="Self.FK__Instructo__IdCur__245D67DE" FromRole="InstructorPorCurso" ToRole="Cursos" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Instructo__IdUsu__236943A5" FromRole="InstructorPorCurso" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Modulos">
           <Key>
             <PropertyRef Name="IdModulo" />
           </Key>
-          <Property Name="IdModulo" Type="Int32" Nullable="false" />
+          <Property Name="IdModulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreModulo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ModulosPorCurso" Relationship="Self.FK__ModulosPo__IdMod__5BE2A6F2" FromRole="Modulos" ToRole="ModulosPorCurso" />
-          <NavigationProperty Name="Preguntas" Relationship="Self.FK__Preguntas__IdMod__5FB337D6" FromRole="Modulos" ToRole="Preguntas" />
-          <NavigationProperty Name="Pruebas" Relationship="Self.FK__Pruebas__IdModul__656C112C" FromRole="Modulos" ToRole="Pruebas" />
+          <NavigationProperty Name="ModulosPorCurso" Relationship="Self.FK__ModulosPo__IdMod__114A936A" FromRole="Modulos" ToRole="ModulosPorCurso" />
+          <NavigationProperty Name="Preguntas" Relationship="Self.FK__Preguntas__IdMod__151B244E" FromRole="Modulos" ToRole="Preguntas" />
+          <NavigationProperty Name="Pruebas" Relationship="Self.FK__Pruebas__IdModul__1AD3FDA4" FromRole="Modulos" ToRole="Pruebas" />
         </EntityType>
         <EntityType Name="ModulosPorCurso">
           <Key>
             <PropertyRef Name="IdModuloPorCurso" />
           </Key>
-          <Property Name="IdModuloPorCurso" Type="Int32" Nullable="false" />
+          <Property Name="IdModuloPorCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdModulo" Type="Int32" Nullable="false" />
           <Property Name="IdCurso" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cursos" Relationship="Self.FK__ModulosPo__IdCur__5CD6CB2B" FromRole="ModulosPorCurso" ToRole="Cursos" />
-          <NavigationProperty Name="Modulos" Relationship="Self.FK__ModulosPo__IdMod__5BE2A6F2" FromRole="ModulosPorCurso" ToRole="Modulos" />
+          <NavigationProperty Name="Cursos" Relationship="Self.FK__ModulosPo__IdCur__123EB7A3" FromRole="ModulosPorCurso" ToRole="Cursos" />
+          <NavigationProperty Name="Modulos" Relationship="Self.FK__ModulosPo__IdMod__114A936A" FromRole="ModulosPorCurso" ToRole="Modulos" />
         </EntityType>
         <EntityType Name="Preguntas">
           <Key>
             <PropertyRef Name="IdPregunta" />
           </Key>
-          <Property Name="IdPregunta" Type="Int32" Nullable="false" />
+          <Property Name="IdPregunta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdModulo" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Modulos" Relationship="Self.FK__Preguntas__IdMod__5FB337D6" FromRole="Preguntas" ToRole="Modulos" />
-          <NavigationProperty Name="PreguntasPorPrueba" Relationship="Self.FK__Preguntas__IdPre__68487DD7" FromRole="Preguntas" ToRole="PreguntasPorPrueba" />
-          <NavigationProperty Name="Respuestas" Relationship="Self.FK__Respuesta__IdPre__628FA481" FromRole="Preguntas" ToRole="Respuestas" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Modulos" Relationship="Self.FK__Preguntas__IdMod__151B244E" FromRole="Preguntas" ToRole="Modulos" />
+          <NavigationProperty Name="PreguntasPorPrueba" Relationship="Self.FK__Preguntas__IdPre__1DB06A4F" FromRole="Preguntas" ToRole="PreguntasPorPrueba" />
+          <NavigationProperty Name="Respuestas" Relationship="Self.FK__Respuesta__IdPre__17F790F9" FromRole="Preguntas" ToRole="Respuestas" />
         </EntityType>
         <EntityType Name="PreguntasPorPrueba">
           <Key>
             <PropertyRef Name="IdPreguntasPorPrueba" />
           </Key>
-          <Property Name="IdPreguntasPorPrueba" Type="Int32" Nullable="false" />
+          <Property Name="IdPreguntasPorPrueba" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdPregunta" Type="Int32" Nullable="false" />
           <Property Name="IdPrueba" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Preguntas" Relationship="Self.FK__Preguntas__IdPre__68487DD7" FromRole="PreguntasPorPrueba" ToRole="Preguntas" />
-          <NavigationProperty Name="Pruebas" Relationship="Self.FK__Preguntas__IdPru__693CA210" FromRole="PreguntasPorPrueba" ToRole="Pruebas" />
+          <NavigationProperty Name="Preguntas" Relationship="Self.FK__Preguntas__IdPre__1DB06A4F" FromRole="PreguntasPorPrueba" ToRole="Preguntas" />
+          <NavigationProperty Name="Pruebas" Relationship="Self.FK__Preguntas__IdPru__1EA48E88" FromRole="PreguntasPorPrueba" ToRole="Pruebas" />
         </EntityType>
         <EntityType Name="Pruebas">
           <Key>
             <PropertyRef Name="IdPrueba" />
           </Key>
-          <Property Name="IdPrueba" Type="Int32" Nullable="false" />
+          <Property Name="IdPrueba" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdModulo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Modulos" Relationship="Self.FK__Pruebas__IdModul__656C112C" FromRole="Pruebas" ToRole="Modulos" />
-          <NavigationProperty Name="PreguntasPorPrueba" Relationship="Self.FK__Preguntas__IdPru__693CA210" FromRole="Pruebas" ToRole="PreguntasPorPrueba" />
+          <NavigationProperty Name="Modulos" Relationship="Self.FK__Pruebas__IdModul__1AD3FDA4" FromRole="Pruebas" ToRole="Modulos" />
+          <NavigationProperty Name="PreguntasPorPrueba" Relationship="Self.FK__Preguntas__IdPru__1EA48E88" FromRole="Pruebas" ToRole="PreguntasPorPrueba" />
         </EntityType>
         <EntityType Name="Respuestas">
           <Key>
             <PropertyRef Name="IdRespuesta" />
           </Key>
-          <Property Name="IdRespuesta" Type="Int32" Nullable="false" />
-          <Property Name="IdPregunta" Type="Int32" />
-          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Preguntas" Relationship="Self.FK__Respuesta__IdPre__628FA481" FromRole="Respuestas" ToRole="Preguntas" />
-        </EntityType>
-        <EntityType Name="TipoUsuario">
-          <Key>
-            <PropertyRef Name="IdTipoUsuario" />
-          </Key>
-          <Property Name="IdTipoUsuario" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__IdTipo__71D1E811" FromRole="TipoUsuario" ToRole="Usuarios" />
+          <Property Name="IdRespuesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPregunta" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Preguntas" Relationship="Self.FK__Respuesta__IdPre__17F790F9" FromRole="Respuestas" ToRole="Preguntas" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="IdUsuario" />
           </Key>
-          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
-          <Property Name="IdTipoUsuario" Type="Int32" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AlumnoPorCurso" Relationship="Self.FK__AlumnoPor__IdUsu__797309D9" FromRole="Usuarios" ToRole="AlumnoPorCurso" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Usuarios__IdAspN__72C60C4A" FromRole="Usuarios" ToRole="AspNetUsers" />
-          <NavigationProperty Name="InstructorPorCurso" Relationship="Self.FK__Instructo__IdUsu__75A278F5" FromRole="Usuarios" ToRole="InstructorPorCurso" />
-          <NavigationProperty Name="TipoUsuario" Relationship="Self.FK__Usuarios__IdTipo__71D1E811" FromRole="Usuarios" ToRole="TipoUsuario" />
+          <NavigationProperty Name="AlumnoPorCurso" Relationship="Self.FK__AlumnoPor__IdUsu__2739D489" FromRole="Usuarios" ToRole="AlumnoPorCurso" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_Usuario_IdAspUser" FromRole="Usuarios" ToRole="AspNetUsers" />
+          <NavigationProperty Name="InstructorPorCurso" Relationship="Self.FK__Instructo__IdUsu__236943A5" FromRole="Usuarios" ToRole="InstructorPorCurso" />
         </EntityType>
-        <Association Name="FK__AlumnoPor__IdCur__7A672E12">
+        <Association Name="FK__AlumnoPor__IdCur__282DF8C2">
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
           <End Role="AlumnoPorCurso" Type="Self.AlumnoPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -746,8 +711,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AlumnoPor__IdUsu__797309D9">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+        <Association Name="FK__AlumnoPor__IdUsu__2739D489">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
           <End Role="AlumnoPorCurso" Type="Self.AlumnoPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
@@ -758,7 +723,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AreasPorC__IdAre__534D60F1">
+        <Association Name="FK__AreasPorC__IdAre__08B54D69">
           <End Role="Areas" Type="Self.Areas" Multiplicity="1" />
           <End Role="AreasPorCentro" Type="Self.AreasPorCentro" Multiplicity="*" />
           <ReferentialConstraint>
@@ -770,7 +735,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cursos__IdArea__571DF1D5">
+        <Association Name="FK__Cursos__IdArea__0C85DE4D">
           <End Role="Areas" Type="Self.Areas" Multiplicity="1" />
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -782,7 +747,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AreasPorC__IdCen__5441852A">
+        <Association Name="FK__AreasPorC__IdCen__09A971A2">
           <End Role="Centros" Type="Self.Centros" Multiplicity="1" />
           <End Role="AreasPorCentro" Type="Self.AreasPorCentro" Multiplicity="*" />
           <ReferentialConstraint>
@@ -822,7 +787,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Usuarios__IdAspN__72C60C4A">
+        <Association Name="FK_Usuario_IdAspUser">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
@@ -834,7 +799,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Instructo__IdCur__76969D2E">
+        <Association Name="FK__Instructo__IdCur__245D67DE">
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
           <End Role="InstructorPorCurso" Type="Self.InstructorPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -846,7 +811,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModulosPo__IdCur__5CD6CB2B">
+        <Association Name="FK__ModulosPo__IdCur__123EB7A3">
           <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
           <End Role="ModulosPorCurso" Type="Self.ModulosPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -858,8 +823,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Instructo__IdUsu__75A278F5">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+        <Association Name="FK__Instructo__IdUsu__236943A5">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
           <End Role="InstructorPorCurso" Type="Self.InstructorPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
@@ -870,7 +835,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ModulosPo__IdMod__5BE2A6F2">
+        <Association Name="FK__ModulosPo__IdMod__114A936A">
           <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
           <End Role="ModulosPorCurso" Type="Self.ModulosPorCurso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -882,7 +847,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Preguntas__IdMod__5FB337D6">
+        <Association Name="FK__Preguntas__IdMod__151B244E">
           <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
           <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -894,7 +859,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pruebas__IdModul__656C112C">
+        <Association Name="FK__Pruebas__IdModul__1AD3FDA4">
           <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
           <End Role="Pruebas" Type="Self.Pruebas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -906,7 +871,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Preguntas__IdPre__68487DD7">
+        <Association Name="FK__Preguntas__IdPre__1DB06A4F">
           <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="1" />
           <End Role="PreguntasPorPrueba" Type="Self.PreguntasPorPrueba" Multiplicity="*" />
           <ReferentialConstraint>
@@ -918,8 +883,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Respuesta__IdPre__628FA481">
-          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="0..1" />
+        <Association Name="FK__Respuesta__IdPre__17F790F9">
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="1" />
           <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Preguntas">
@@ -930,7 +895,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Preguntas__IdPru__693CA210">
+        <Association Name="FK__Preguntas__IdPru__1EA48E88">
           <End Role="Pruebas" Type="Self.Pruebas" Multiplicity="1" />
           <End Role="PreguntasPorPrueba" Type="Self.PreguntasPorPrueba" Multiplicity="*" />
           <ReferentialConstraint>
@@ -939,18 +904,6 @@
             </Principal>
             <Dependent Role="PreguntasPorPrueba">
               <PropertyRef Name="IdPrueba" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Usuarios__IdTipo__71D1E811">
-          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoUsuario">
-              <PropertyRef Name="IdTipoUsuario" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdTipoUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -976,25 +929,24 @@
           <EntitySet Name="PreguntasPorPrueba" EntityType="Self.PreguntasPorPrueba" />
           <EntitySet Name="Pruebas" EntityType="Self.Pruebas" />
           <EntitySet Name="Respuestas" EntityType="Self.Respuestas" />
-          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-          <AssociationSet Name="FK__AlumnoPor__IdCur__7A672E12" Association="Self.FK__AlumnoPor__IdCur__7A672E12">
+          <AssociationSet Name="FK__AlumnoPor__IdCur__282DF8C2" Association="Self.FK__AlumnoPor__IdCur__282DF8C2">
             <End Role="Cursos" EntitySet="Cursos" />
             <End Role="AlumnoPorCurso" EntitySet="AlumnoPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__AlumnoPor__IdUsu__797309D9" Association="Self.FK__AlumnoPor__IdUsu__797309D9">
+          <AssociationSet Name="FK__AlumnoPor__IdUsu__2739D489" Association="Self.FK__AlumnoPor__IdUsu__2739D489">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="AlumnoPorCurso" EntitySet="AlumnoPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__AreasPorC__IdAre__534D60F1" Association="Self.FK__AreasPorC__IdAre__534D60F1">
+          <AssociationSet Name="FK__AreasPorC__IdAre__08B54D69" Association="Self.FK__AreasPorC__IdAre__08B54D69">
             <End Role="Areas" EntitySet="Areas" />
             <End Role="AreasPorCentro" EntitySet="AreasPorCentro" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cursos__IdArea__571DF1D5" Association="Self.FK__Cursos__IdArea__571DF1D5">
+          <AssociationSet Name="FK__Cursos__IdArea__0C85DE4D" Association="Self.FK__Cursos__IdArea__0C85DE4D">
             <End Role="Areas" EntitySet="Areas" />
             <End Role="Cursos" EntitySet="Cursos" />
           </AssociationSet>
-          <AssociationSet Name="FK__AreasPorC__IdCen__5441852A" Association="Self.FK__AreasPorC__IdCen__5441852A">
+          <AssociationSet Name="FK__AreasPorC__IdCen__09A971A2" Association="Self.FK__AreasPorC__IdCen__09A971A2">
             <End Role="Centros" EntitySet="Centros" />
             <End Role="AreasPorCentro" EntitySet="AreasPorCentro" />
           </AssociationSet>
@@ -1006,49 +958,45 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdAspN__72C60C4A" Association="Self.FK__Usuarios__IdAspN__72C60C4A">
+          <AssociationSet Name="FK_Usuario_IdAspUser" Association="Self.FK_Usuario_IdAspUser">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Instructo__IdCur__76969D2E" Association="Self.FK__Instructo__IdCur__76969D2E">
+          <AssociationSet Name="FK__Instructo__IdCur__245D67DE" Association="Self.FK__Instructo__IdCur__245D67DE">
             <End Role="Cursos" EntitySet="Cursos" />
             <End Role="InstructorPorCurso" EntitySet="InstructorPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModulosPo__IdCur__5CD6CB2B" Association="Self.FK__ModulosPo__IdCur__5CD6CB2B">
+          <AssociationSet Name="FK__ModulosPo__IdCur__123EB7A3" Association="Self.FK__ModulosPo__IdCur__123EB7A3">
             <End Role="Cursos" EntitySet="Cursos" />
             <End Role="ModulosPorCurso" EntitySet="ModulosPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__Instructo__IdUsu__75A278F5" Association="Self.FK__Instructo__IdUsu__75A278F5">
+          <AssociationSet Name="FK__Instructo__IdUsu__236943A5" Association="Self.FK__Instructo__IdUsu__236943A5">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="InstructorPorCurso" EntitySet="InstructorPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__ModulosPo__IdMod__5BE2A6F2" Association="Self.FK__ModulosPo__IdMod__5BE2A6F2">
+          <AssociationSet Name="FK__ModulosPo__IdMod__114A936A" Association="Self.FK__ModulosPo__IdMod__114A936A">
             <End Role="Modulos" EntitySet="Modulos" />
             <End Role="ModulosPorCurso" EntitySet="ModulosPorCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK__Preguntas__IdMod__5FB337D6" Association="Self.FK__Preguntas__IdMod__5FB337D6">
+          <AssociationSet Name="FK__Preguntas__IdMod__151B244E" Association="Self.FK__Preguntas__IdMod__151B244E">
             <End Role="Modulos" EntitySet="Modulos" />
             <End Role="Preguntas" EntitySet="Preguntas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pruebas__IdModul__656C112C" Association="Self.FK__Pruebas__IdModul__656C112C">
+          <AssociationSet Name="FK__Pruebas__IdModul__1AD3FDA4" Association="Self.FK__Pruebas__IdModul__1AD3FDA4">
             <End Role="Modulos" EntitySet="Modulos" />
             <End Role="Pruebas" EntitySet="Pruebas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Preguntas__IdPre__68487DD7" Association="Self.FK__Preguntas__IdPre__68487DD7">
+          <AssociationSet Name="FK__Preguntas__IdPre__1DB06A4F" Association="Self.FK__Preguntas__IdPre__1DB06A4F">
             <End Role="Preguntas" EntitySet="Preguntas" />
             <End Role="PreguntasPorPrueba" EntitySet="PreguntasPorPrueba" />
           </AssociationSet>
-          <AssociationSet Name="FK__Respuesta__IdPre__628FA481" Association="Self.FK__Respuesta__IdPre__628FA481">
+          <AssociationSet Name="FK__Respuesta__IdPre__17F790F9" Association="Self.FK__Respuesta__IdPre__17F790F9">
             <End Role="Preguntas" EntitySet="Preguntas" />
             <End Role="Respuestas" EntitySet="Respuestas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Preguntas__IdPru__693CA210" Association="Self.FK__Preguntas__IdPru__693CA210">
+          <AssociationSet Name="FK__Preguntas__IdPru__1EA48E88" Association="Self.FK__Preguntas__IdPru__1EA48E88">
             <End Role="Pruebas" EntitySet="Pruebas" />
             <End Role="PreguntasPorPrueba" EntitySet="PreguntasPorPrueba" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Usuarios__IdTipo__71D1E811" Association="Self.FK__Usuarios__IdTipo__71D1E811">
-            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
@@ -1060,9 +1008,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CourageproModelStoreContainer" CdmEntityContainer="courageproEntities">
+        <EntityContainerMapping StorageEntityContainer="courageproModelStoreContainer" CdmEntityContainer="courageproEntities">
           <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="CourageproModel.C__MigrationHistory">
+            <EntityTypeMapping TypeName="courageproModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
                 <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
                 <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
@@ -1072,7 +1020,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AlumnoPorCurso">
-            <EntityTypeMapping TypeName="CourageproModel.AlumnoPorCurso">
+            <EntityTypeMapping TypeName="courageproModel.AlumnoPorCurso">
               <MappingFragment StoreEntitySet="AlumnoPorCurso">
                 <ScalarProperty Name="IdAlumnoPorCurso" ColumnName="IdAlumnoPorCurso" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
@@ -1081,7 +1029,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Areas">
-            <EntityTypeMapping TypeName="CourageproModel.Areas">
+            <EntityTypeMapping TypeName="courageproModel.Areas">
               <MappingFragment StoreEntitySet="Areas">
                 <ScalarProperty Name="IdArea" ColumnName="IdArea" />
                 <ScalarProperty Name="NombreArea" ColumnName="NombreArea" />
@@ -1089,7 +1037,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AreasPorCentro">
-            <EntityTypeMapping TypeName="CourageproModel.AreasPorCentro">
+            <EntityTypeMapping TypeName="courageproModel.AreasPorCentro">
               <MappingFragment StoreEntitySet="AreasPorCentro">
                 <ScalarProperty Name="IdAreasPorCentro" ColumnName="IdAreasPorCentro" />
                 <ScalarProperty Name="IdArea" ColumnName="IdArea" />
@@ -1098,7 +1046,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="CourageproModel.AspNetRoles">
+            <EntityTypeMapping TypeName="courageproModel.AspNetRoles">
               <MappingFragment StoreEntitySet="AspNetRoles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1106,7 +1054,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="CourageproModel.AspNetUserClaims">
+            <EntityTypeMapping TypeName="courageproModel.AspNetUserClaims">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -1116,7 +1064,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="CourageproModel.AspNetUserLogins">
+            <EntityTypeMapping TypeName="courageproModel.AspNetUserLogins">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
                 <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
                 <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -1125,7 +1073,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="CourageproModel.AspNetUsers">
+            <EntityTypeMapping TypeName="courageproModel.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -1143,7 +1091,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Centros">
-            <EntityTypeMapping TypeName="CourageproModel.Centros">
+            <EntityTypeMapping TypeName="courageproModel.Centros">
               <MappingFragment StoreEntitySet="Centros">
                 <ScalarProperty Name="IdCentro" ColumnName="IdCentro" />
                 <ScalarProperty Name="NombreCentro" ColumnName="NombreCentro" />
@@ -1152,7 +1100,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cursos">
-            <EntityTypeMapping TypeName="CourageproModel.Cursos">
+            <EntityTypeMapping TypeName="courageproModel.Cursos">
               <MappingFragment StoreEntitySet="Cursos">
                 <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
                 <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
@@ -1161,7 +1109,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="InstructorPorCurso">
-            <EntityTypeMapping TypeName="CourageproModel.InstructorPorCurso">
+            <EntityTypeMapping TypeName="courageproModel.InstructorPorCurso">
               <MappingFragment StoreEntitySet="InstructorPorCurso">
                 <ScalarProperty Name="IdInstructorPorCurso" ColumnName="IdInstructorPorCurso" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
@@ -1170,7 +1118,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Modulos">
-            <EntityTypeMapping TypeName="CourageproModel.Modulos">
+            <EntityTypeMapping TypeName="courageproModel.Modulos">
               <MappingFragment StoreEntitySet="Modulos">
                 <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
                 <ScalarProperty Name="NombreModulo" ColumnName="NombreModulo" />
@@ -1178,7 +1126,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ModulosPorCurso">
-            <EntityTypeMapping TypeName="CourageproModel.ModulosPorCurso">
+            <EntityTypeMapping TypeName="courageproModel.ModulosPorCurso">
               <MappingFragment StoreEntitySet="ModulosPorCurso">
                 <ScalarProperty Name="IdModuloPorCurso" ColumnName="IdModuloPorCurso" />
                 <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
@@ -1187,7 +1135,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Preguntas">
-            <EntityTypeMapping TypeName="CourageproModel.Preguntas">
+            <EntityTypeMapping TypeName="courageproModel.Preguntas">
               <MappingFragment StoreEntitySet="Preguntas">
                 <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
                 <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
@@ -1196,7 +1144,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PreguntasPorPrueba">
-            <EntityTypeMapping TypeName="CourageproModel.PreguntasPorPrueba">
+            <EntityTypeMapping TypeName="courageproModel.PreguntasPorPrueba">
               <MappingFragment StoreEntitySet="PreguntasPorPrueba">
                 <ScalarProperty Name="IdPreguntasPorPrueba" ColumnName="IdPreguntasPorPrueba" />
                 <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
@@ -1205,7 +1153,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pruebas">
-            <EntityTypeMapping TypeName="CourageproModel.Pruebas">
+            <EntityTypeMapping TypeName="courageproModel.Pruebas">
               <MappingFragment StoreEntitySet="Pruebas">
                 <ScalarProperty Name="IdPrueba" ColumnName="IdPrueba" />
                 <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
@@ -1213,7 +1161,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Respuestas">
-            <EntityTypeMapping TypeName="CourageproModel.Respuestas">
+            <EntityTypeMapping TypeName="courageproModel.Respuestas">
               <MappingFragment StoreEntitySet="Respuestas">
                 <ScalarProperty Name="IdRespuesta" ColumnName="IdRespuesta" />
                 <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
@@ -1221,27 +1169,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TipoUsuario">
-            <EntityTypeMapping TypeName="CourageproModel.TipoUsuario">
-              <MappingFragment StoreEntitySet="TipoUsuario">
-                <ScalarProperty Name="IdTipoUsuario" ColumnName="IdTipoUsuario" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="CourageproModel.Usuarios">
+            <EntityTypeMapping TypeName="courageproModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Apellido" ColumnName="Apellido" />
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
-                <ScalarProperty Name="IdTipoUsuario" ColumnName="IdTipoUsuario" />
                 <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="CourageproModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="courageproModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>

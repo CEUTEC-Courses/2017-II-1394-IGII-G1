@@ -10,6 +10,7 @@ using ProyectoSoft2.DB;
 
 namespace ProyectoSoft2.Controllers
 {
+    [Authorize]
     public class ModulosController : Controller
     {
         private courageproEntities db = new courageproEntities();

@@ -1,0 +1,66 @@
+﻿
+@model ProyectoSoft2.Models.Usuario.UsuarioViewModel
+
+
+<form class="smart-form" id="FormUsuario">
+    <fieldset style="padding-top:0px;">
+
+        <div class="row">
+                    <section>
+                        <span>@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </section>
+                    <section>
+                        <span>@Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    </section>
+                </div>    
+    </fieldset>
+    <a class="btn btn-success btn-lg" onclick="EditarContrasena()"> Crear Usuario</a>
+</form>
+
+
+
+
+
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<script>
+        $("#TipoUsuario").select2();
+
+        function EditarContrasena() {
+
+            var $result = $("#FormUsuario").valid();
+            if (!$result) { return false;}
+
+            LoadWaitNotification();
+                $.ajax({
+                    url: "/Usuario/ResetContrasena",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $('#FormUsuario').serialize(),
+                    success: function (data) {
+
+                        if (data.Estado) {
+                            ShowboxSuccess(data.Mensaje, data.Titulo);
+                            new $.fn.dataTable.Api("#IdTabla").ajax.reload();
+                            $("#MyModal").modal("hide");
+                        } else ShowboxError(data.Mensaje, data.Titulo);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        alert(textStatus);
+                        UnloadWaitNotification();
+                    },
+                    complete: function () { UnloadWaitNotification(); }
+                });
+
+        };
+
+</script>

@@ -65,8 +65,8 @@ namespace ProyectoSoft2.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+       // [EmailAddress]
+        [Display(Name = "Nombre de Usuario")]
         public string Email { get; set; }
 
         [Required]

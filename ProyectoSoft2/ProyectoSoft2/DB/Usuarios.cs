@@ -24,8 +24,7 @@ namespace ProyectoSoft2.DB
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public Nullable<System.DateTime> FechaNacimiento { get; set; }
-        public Nullable<int> IdTipoUsuario { get; set; }
+        public System.DateTime FechaNacimiento { get; set; }
         public string IdAspNetUser { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -33,6 +32,5 @@ namespace ProyectoSoft2.DB
         public virtual AspNetUsers AspNetUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InstructorPorCurso> InstructorPorCurso { get; set; }
-        public virtual TipoUsuario TipoUsuario { get; set; }
     }
 }
