@@ -9,25 +9,39 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreArea)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreArea)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdArea }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdArea }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdArea })
-        </td>
-    </tr>
-}
-
+<table class="table table-bordered table-responsive table-hover" id="IdTabla" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreArea)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreArea)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdArea }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdArea }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdArea })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#IdTabla").dataTable();
+        });
+
+    </script>
+
+ }
