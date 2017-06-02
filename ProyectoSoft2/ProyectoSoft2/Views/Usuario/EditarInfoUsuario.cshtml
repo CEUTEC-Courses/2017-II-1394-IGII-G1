@@ -3,7 +3,7 @@
 <form class="smart-form" id="FormInfoUsuario">
   
     <fieldset style="padding-top:0px;">
-
+        @Html.HiddenFor(model =>model.Id)
                 <div class="row">
                     <section>
                         <span>@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })</span>
@@ -65,7 +65,7 @@
                         } else ShowboxError(data.Mensaje, data.Titulo);
                     },
                     error: function (xhr, textStatus, errorThrown) {
-                        alert(textStatus + ": crear contrato");
+                        alert(textStatus + ": editar usuario");
                         UnloadWaitNotification();
                     },
                     complete: function () { UnloadWaitNotification(); }

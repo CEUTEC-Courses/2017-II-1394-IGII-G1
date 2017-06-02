@@ -130,6 +130,28 @@ namespace ProyectoSoft2.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult EditarInfoUsuario(UsuarioViewModel model)
+        {
+            using (var context = new courageproEntities())
+            {
+
+                var usuario = context.Usuarios.Find(model.Id);
+                usuario.Nombre = model.FirstName;
+                usuario.Apellido = model.LastName;
+                usuario.FechaNacimiento = model.BirthDate;
+
+                var result = context.SaveChanges() > 0;
+                return Json(new MensajeRespuestaViewModel
+                {
+                    Titulo = "Editar Usuario",
+                    Mensaje = result ? "Se edito Satisfactoriamente" : "Error al editar el usuario",
+                    Estado = result
+                }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
         [HttpGet]
         public ActionResult EditarCuentaUsuario(int Id)
         {
@@ -143,6 +165,45 @@ namespace ProyectoSoft2.Controllers
                     UserName = user.Result.UserName,
                     Email = user.Result.Email,      
                 });
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditarCuentaUsuario(UsuarioViewModel model)
+        {
+            using (var context = new courageproEntities())
+            {
+
+               
+
+                var result = context.SaveChanges() > 0;
+                return Json(new MensajeRespuestaViewModel
+                {
+                    Titulo = "Editar Usuario",
+                    Mensaje = result ? "Se edito Satisfactoriamente" : "Error al editar el usuario",
+                    Estado = result
+                }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult EliminarUsuario(int Id)
+        {
+            using (var context = new courageproEntities())
+            {
+               
+                var usuario = context.Usuarios.Find(Id);
+                context.AspNetUsers.Remove(usuario.AspNetUsers);
+                context.Usuarios.Remove(usuario);
+                var result = context.SaveChanges() > 0;
+                return Json(new MensajeRespuestaViewModel
+                {
+                    Titulo = "Eliminar Usuario",
+                    Mensaje = result ? "Se elimino Satisfactoriamente" : "Error al eliminar el usuario",
+                    Estado = result
+                }, JsonRequestBehavior.AllowGet);
+
             }
         }
 
