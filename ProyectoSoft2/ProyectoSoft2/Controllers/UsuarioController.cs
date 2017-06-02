@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using ProyectoSoft2.DB;
 using ProyectoSoft2.Models;
 using ProyectoSoft2.Models.Base;
@@ -12,7 +13,7 @@ using System.Web.Mvc;
 
 namespace ProyectoSoft2.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class UsuarioController : Controller
     {
         private ApplicationUserManager _userManager;
@@ -150,11 +151,27 @@ namespace ProyectoSoft2.Controllers
         {
             using (var context = new courageproEntities())
             {               
-                return PartialView(new UsuarioViewModel());
+                return PartialView(new CambiarContrasenaViewModel { IdUser = Id});
             }
+        }
 
 
-
+        [HttpPost]
+        public async Task<ActionResult> ResetContrasena(CambiarContrasenaViewModel model)
+        {
+            using (var context = new courageproEntities())
+            {
+                var User = context.Usuarios.Find(model.IdUser);
+                string code = await UserManager.GeneratePasswordResetTokenAsync(User.IdAspNetUser);
+                var result = await UserManager.ResetPasswordAsync(User.IdAspNetUser, code, model.NewPassword);
+         
+                    return Json(new MensajeRespuestaViewModel
+                    {
+                        Titulo = "Cambiar Contrasena",
+                        Mensaje = result.Succeeded ? "Se cambio Satisfactoriamente" : "Error al cambiar la contrasena",
+                        Estado = result.Succeeded
+                    }, JsonRequestBehavior.AllowGet);                  
+            }
         }
 
 
