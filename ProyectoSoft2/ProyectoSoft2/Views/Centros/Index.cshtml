@@ -4,36 +4,64 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreCentro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreCentro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCentro }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCentro }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCentro })
-        </td>
-    </tr>
+<div class="jarviswidget jarviswidget-color-blueDark" id="">
+    <header role="heading">
+        <span class="widget-icon"> <i class="fa fa-cog"></i> </span>
+        <h2><strong>Lista de Centros</strong></h2>
+        <div class="widget-toolbar" role="menu">
+            <a href="/Centros/Create" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i>   Crear Centro</a>
+        </div>
+    </header>
+    <!-- widget div-->
+    <div>
+        <!-- widget content -->
+        <div class="widget-body">
+            <table class="table table-bordered table-responsive table-hover" id="IdTabla" style="width: 100%;">
+               <thead>
+                   <tr>
+                       <th>
+                           @Html.DisplayNameFor(model => model.NombreCentro)
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.Direccion)
+                       </th>
+                       <th></th>
+                   </tr>
+               </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NombreCentro)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Direccion)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdCentro }) |
+                                 
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdCentro })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+            </table>
+                      
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+$(document).ready(function(){
+    $("#IdTabla").dataTable();
+
+});
+
+    </script>
+
 }
-
-</table>

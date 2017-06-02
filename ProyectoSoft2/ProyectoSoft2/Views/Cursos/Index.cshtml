@@ -4,36 +4,63 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreCurso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Areas.NombreArea)
-        </th>
-        <th></th>
-    </tr>
+<div class="jarviswidget jarviswidget-color-blueDark" id="">
+    <header role="heading">
+        <span class="widget-icon"> <i class="fa fa-cog"></i> </span>
+        <h2><strong>Lista de Cursos</strong></h2>
+        <div class="widget-toolbar" role="menu">
+            <a href="/Cursos/Create" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i>   Crear Curso</a>
+        </div>
+    </header>
+    <!-- widget div-->
+    <div>
+        <!-- widget content -->
+        <div class="widget-body">
+            <table class="table table-bordered table-responsive table-hover" id="IdTabla" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NombreCurso)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Areas.NombreArea)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreCurso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Areas.NombreArea)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCurso }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCurso }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCurso })
-        </td>
-    </tr>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreCurso)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Areas.NombreArea)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.IdCurso }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.IdCurso })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<script>
+$(document).ready(function(){
+    $("#IdTabla").dataTable();
+
+});
+
+</script>
+
 }
-
-</table>
