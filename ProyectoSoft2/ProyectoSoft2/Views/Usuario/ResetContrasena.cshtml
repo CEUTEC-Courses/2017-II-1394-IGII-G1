@@ -21,7 +21,7 @@
                     </section>
                 </div>    
     </fieldset>
-    <a class="btn btn-success btn-lg" onclick="EditarContrasena()"> Crear Usuario</a>
+    <a class="btn btn-success btn-lg" onclick="EditarContrasena()"> Cambiar Contrasena</a>
 </form>
 
 
@@ -32,7 +32,7 @@
 @Scripts.Render("~/bundles/jqueryval")
 
 <script>
-        $("#TipoUsuario").select2();
+      
 
         function EditarContrasena() {
 
@@ -46,10 +46,9 @@
                     dataType: 'json',
                     data: $('#FormUsuario').serialize(),
                     success: function (data) {
-
                         if (data.Estado) {
                             ShowboxSuccess(data.Mensaje, data.Titulo);
-                            new $.fn.dataTable.Api("#IdTabla").ajax.reload();
+                            
                             $("#MyModal").modal("hide");
                         } else ShowboxError(data.Mensaje, data.Titulo);
                     },

@@ -1,33 +1,58 @@
 ﻿@model IEnumerable<ProyectoSoft2.DB.Modulos>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Modulos";
 }
 
-<h2>Index</h2>
+<div class="jarviswidget jarviswidget-color-blueDark" id="">
+    <header role="heading">
+        <span class="widget-icon"> <i class="fa fa-cog"></i> </span>
+        <h2><strong>Lista de Modulos</strong></h2>
+        <div class="widget-toolbar" role="menu">
+            <a href="/Modulos/Create" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i>   Crear Modulo</a>
+        </div>
+    </header>
+    <!-- widget div-->
+    <div>
+        <!-- widget content -->
+        <div class="widget-body">
+            <table class="table table-bordered table-responsive table-hover" id="IdTabla" style="width: 100%;">
+               <thead>
+                   <tr>
+                       <th>
+                           @Html.DisplayNameFor(model => model.NombreModulo)
+                       </th>
+                       <th>Acciones</th>
+                   </tr>
+               </thead>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreModulo)
-        </th>
-        <th></th>
-    </tr>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreModulo)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", new { id = item.IdModulo }) |
+                               
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdModulo })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreModulo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdModulo }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdModulo }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdModulo })
-        </td>
-    </tr>
+@section Scripts{
+    <script>
+$(document).ready(function(){
+    $("#IdTabla").dataTable();
+
+});
+
+    </script>
+
 }
-
-</table>

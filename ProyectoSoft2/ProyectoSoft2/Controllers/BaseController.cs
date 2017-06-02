@@ -8,7 +8,7 @@ namespace ProyectoSoft2.Controllers
 {
     public class BaseController : Controller
     {
-        // GET: Base
+        [Authorize]
         public ActionResult Index()
         {
             return View();
