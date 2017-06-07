@@ -163,6 +163,7 @@
     <Property Name="Apellido" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="FechaNacimiento" Type="date" Nullable="false" />
     <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="IdCentro" Type="int" />
   </EntityType>
   <Association Name="FK__AlumnoPor__IdCur__282DF8C2">
     <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />

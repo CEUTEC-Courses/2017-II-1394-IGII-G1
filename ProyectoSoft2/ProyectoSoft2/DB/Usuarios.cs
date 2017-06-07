@@ -26,6 +26,7 @@ namespace ProyectoSoft2.DB
         public string Apellido { get; set; }
         public System.DateTime FechaNacimiento { get; set; }
         public string IdAspNetUser { get; set; }
+        public Nullable<int> IdCentro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AlumnoPorCurso> AlumnoPorCurso { get; set; }

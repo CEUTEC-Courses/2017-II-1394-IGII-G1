@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Crear Usuario";
 }
+
 <form class="smart-form" id="FormUsuario">
     <header><strong>Crear Usuario</strong></header>
     <br />
@@ -12,7 +13,6 @@
             <section class="col col-6">
                 <strong>Informacion Personal</strong>
                 <hr />
-
                 <div class="row" style="padding:20px;">
                     <section>
                         <span>@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })</span>
@@ -43,11 +43,18 @@
                 <hr />
                 <div class="row" style="padding:20px;">
                     <section>
+                        <span>@Html.LabelFor(model => model.Centro, htmlAttributes: new { @class = "control-label" })</span>
+                        <label class="input">
+                            @Html.DropDownListFor(model => model.Centro, new SelectList(ViewBag.ListaCentros, "Value", "Text"), "", new { @class = "form-control select2", style = "width:100%;" })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.Centro, null, new { @class = "text-danger" })
+                    </section>
+                    <section>
                         <span>@Html.LabelFor(model => model.RoleUsuario, htmlAttributes: new { @class = "control-label" })</span>
                         <label class="input">
                             @Html.DropDownListFor(model => model.RoleUsuario, new SelectList(ViewBag.ListaTipoUsuario, "Value", "Text"), "", new { @class = "form-control select2", style = "width:100%;" })
                         </label>
-                        @Html.ValidationMessageFor(model => model.RoleUsuario, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.RoleUsuario, null, new { @class = "text-danger" })
                     </section>
                     
                      <section>

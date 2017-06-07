@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using ProyectoSoft2.DB;
 using ProyectoSoft2.Models;
@@ -43,7 +44,9 @@ namespace ProyectoSoft2.Controllers
                     BirthDate = x.FechaNacimiento,
                     Email = x.AspNetUsers.Email,
                     Estado = true,
-                    TipoUsuario = x.AspNetUsers.AspNetRoles.Any()? x.AspNetUsers.AspNetRoles.FirstOrDefault().Name :""
+                    TipoUsuario = x.AspNetUsers.AspNetRoles.Any()? x.AspNetUsers.AspNetRoles.FirstOrDefault().Name :"",
+                    Centro = x.IdCentro.ToString()
+
                 }).ToList();
                 var jsonResult = Json(listaUsuarios, JsonRequestBehavior.AllowGet);
                 jsonResult.MaxJsonLength = Int32.MaxValue;
@@ -58,6 +61,7 @@ namespace ProyectoSoft2.Controllers
             using (var context = new courageproEntities())
             {
                 ViewBag.ListaTipoUsuario = context.AspNetRoles.Select(x => new SelectListItem { Value = x.Id, Text = x.Name }).ToList();
+                ViewBag.ListaCentros= context.Centros.Select(x => new SelectListItem { Value = x.IdCentro.ToString(), Text = x.NombreCentro }).ToList();
                 return View();
             }
         }
@@ -80,6 +84,7 @@ namespace ProyectoSoft2.Controllers
                             Apellido = model.LastName.Trim(),
                             FechaNacimiento = model.BirthDate,
                             IdAspNetUser = user.Id,
+
                         });
 
                         var resultado = context.SaveChanges() > 0;
@@ -153,37 +158,62 @@ namespace ProyectoSoft2.Controllers
 
 
         [HttpGet]
-        public ActionResult EditarCuentaUsuario(int Id)
+        public async Task<ActionResult> EditarCuentaUsuario(int Id)
         {
             using (var context = new courageproEntities())
             {
                 ViewBag.ListaTipoUsuario = context.AspNetRoles.Select(x => new SelectListItem { Value = x.Id, Text = x.Name }).ToList();
+                ViewBag.ListaCentros = context.Centros.Select(x => new SelectListItem { Value = x.IdCentro.ToString(), Text = x.NombreCentro }).ToList();
                 var usuario = context.Usuarios.Find(Id);
-                var user =  UserManager.FindByIdAsync(usuario.IdAspNetUser);
+              //  var user = await UserManager.FindByIdAsync(usuario.IdAspNetUser);
+                var roles = await UserManager.GetRolesAsync(usuario.IdAspNetUser);
                 return PartialView(new UsuarioViewModel
                 {
-                    UserName = user.Result.UserName,
-                    Email = user.Result.Email,      
+                    Id = usuario.IdUsuario,
+                    UserName = usuario.AspNetUsers.UserName,
+                    Email = usuario.AspNetUsers.Email,
+                    IdAspNetUser = usuario.IdAspNetUser,
+                    RoleUsuario =  context.AspNetRoles.FirstOrDefault(x=>x.Name== roles.FirstOrDefault()).Id ,
+                    Centro = usuario.IdCentro??0   
                 });
+
             }
         }
 
         [HttpPost]
-        public ActionResult EditarCuentaUsuario(UsuarioViewModel model)
+        public async Task<ActionResult> EditarCuentaUsuario(UsuarioViewModel model)
         {
-            using (var context = new courageproEntities())
+            try {
+                using (var context = new courageproEntities())
+                {
+                    var usuario = context.Usuarios.Find(model.Id);
+                     usuario.AspNetUsers.UserName = model.UserName;
+                     usuario.AspNetUsers.Email = model.Email;
+                     usuario.IdCentro = model.Centro;
+                    context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
+                    var roles = await UserManager.GetRolesAsync(model.IdAspNetUser);
+                    await UserManager.RemoveFromRolesAsync(model.IdAspNetUser, roles.ToArray());
+                    var result2 =  await UserManager.AddToRoleAsync(model.IdAspNetUser, context.AspNetRoles.Find(model.RoleUsuario).Name);
+
+                    var result = context.SaveChanges() > 0;
+                    return Json(new MensajeRespuestaViewModel
+                    {
+                        Titulo = "Editar Usuario",
+                        Mensaje = result && result2.Succeeded ? "Se edito Satisfactoriamente" : "Error al editar el usuario",
+                        Estado = result
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception e)
             {
-
-               
-
-                var result = context.SaveChanges() > 0;
                 return Json(new MensajeRespuestaViewModel
                 {
                     Titulo = "Editar Usuario",
-                    Mensaje = result ? "Se edito Satisfactoriamente" : "Error al editar el usuario",
-                    Estado = result
+                    Mensaje = "Error al editar el usuario",
+                    Estado = false
                 }, JsonRequestBehavior.AllowGet);
             }
+
         }
 
 

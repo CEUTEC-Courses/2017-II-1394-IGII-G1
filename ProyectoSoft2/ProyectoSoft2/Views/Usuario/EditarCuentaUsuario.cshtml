@@ -3,8 +3,16 @@
 
 <form class="smart-form" id="FormUsuario">
     <fieldset style="padding-top:0px;">
-      
+        @Html.HiddenFor(model => model.Id)
+      @Html.HiddenFor(model => model.IdAspNetUser)
         <div class="row">
+            <section>
+                <span>@Html.LabelFor(model => model.Centro, htmlAttributes: new { @class = "control-label" })</span>
+                <label class="input">
+                    @Html.DropDownListFor(model => model.Centro, new SelectList(ViewBag.ListaCentros, "Value", "Text"), null, new { @class = "form-control select2", style = "width:100%;" })
+                </label>
+                @Html.ValidationMessageFor(model => model.Centro, "", new { @class = "text-danger" })
+            </section>
                     <section>
                         <span>@Html.LabelFor(model => model.RoleUsuario, htmlAttributes: new { @class = "control-label" })</span>
                         <label class="input">

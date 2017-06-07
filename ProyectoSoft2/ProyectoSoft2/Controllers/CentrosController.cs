@@ -7,12 +7,50 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProyectoSoft2.DB;
+using ProyectoSoft2.Models.Centro;
+using ProyectoSoft2.Models.Base;
 
 namespace ProyectoSoft2.Controllers
 {
     [Authorize]
     public class CentrosController : Controller
     {
+        [HttpGet]
+        public ActionResult MostrarModalListaAreas(int id)
+        {
+                using (var context = new courageproEntities())
+                {
+                    ViewBag.IdCentro = id;
+                    var list = context.Areas.Select(x => new ListaAreasAsignadasACentroViewModel {IdArea=x.IdArea, Nombre = x.NombreArea, EstaAsignado = x.AreasPorCentro.Any(y=>y.IdCentro==id)}).ToList();
+                    return PartialView(list);
+                }
+            
+        }
+
+        [HttpPost]
+        public ActionResult GuardarAsignacionDeAreas(List<int> Lista, int IdCentro)
+        {
+            using (var context = new courageproEntities())
+            {
+                var listaAborrar = context.AreasPorCentro.Where(x => x.IdCentro == IdCentro).ToList();
+                context.AreasPorCentro.RemoveRange(listaAborrar);
+                if (Lista != null) Lista.ForEach(x => context.AreasPorCentro.Add(new AreasPorCentro { IdArea = x, IdCentro = IdCentro }));
+                var resultado = context.SaveChanges() > 0;
+                return Json(new MensajeRespuestaViewModel
+                {
+                    Titulo = "Asignar Areas a Centro",
+                    Mensaje = resultado ? "Se guardo Satisfactoriamente" : "Error al guardar",
+                    Estado = resultado
+                }, JsonRequestBehavior.AllowGet);
+              
+            }
+        }
+
+
+
+
+
+
         private courageproEntities db = new courageproEntities();
 
         // GET: Centros

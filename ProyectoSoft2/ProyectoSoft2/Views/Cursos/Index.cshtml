@@ -43,7 +43,9 @@
                             </td>
                             <td>
                                 @Html.ActionLink("Edit", "Edit", new { id = item.IdCurso }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.IdCurso })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.IdCurso }) | 
+                                <a type="button" onclick="MostrarModalLista(@item.IdCurso, 'MostrarModalListaAlumnos', 'Alumno')" href="#">Asignar Alumnos</a> |
+                                <a type="button" onclick="MostrarModalLista(@item.IdCurso, 'MostrarModalListaInstructor','Instructor')" href="#">Asignar Instructor</a>
                             </td>
                         </tr>
                     }
@@ -60,6 +62,54 @@ $(document).ready(function(){
     $("#IdTabla").dataTable();
 
 });
+
+function MostrarModalLista(Id, ActionName, Tipo) {
+    LoadWaitNotification();
+    $.ajax({
+        url: "/Cursos/" + ActionName,
+        type: "GET",
+    data: { id: Id },
+    success: function (data) {
+        $("#MyModalTitle").html("<b>Asignar "+Tipo+" a Curso</b>");
+        $("#MyModalBody").html(data);
+        $("#MyModal").modal("show");      
+    },
+    error: function (xhr, textStatus, errorThrown) {
+        ShowboxError(textStatus, "Error"); alert(textStatus);
+        UnloadWaitNotification();
+    },
+    complete: function () { UnloadWaitNotification(); }
+});
+}
+
+
+function GuardarSeleccion(idCurso, IdTabla, ActionName ) {
+    var listcheckedrows = [];
+    var table = new $.fn.dataTable.Api("#" + IdTabla);
+    table.rows().every(function (rowIdx, tableLoop, rowLoop) {
+        var nodo = this.node();
+        if ($(nodo).find('input').is(':checked')) listcheckedrows.push($(nodo).attr("id"));
+    });
+    LoadWaitNotification();
+    $.ajax({
+        url: "/Cursos/" + ActionName,
+        type: "POST",
+        data: { Lista: listcheckedrows, IdCurso: idCurso },
+        success: function (data) {
+            if (data.Estado) {
+                ShowboxSuccess(data.Mensaje, data.Titulo);
+                $("#MyModal").modal("hide");
+            } else ShowboxError(data.Mensaje, data.Titulo);
+
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            ShowboxError(textStatus, "Error"); alert(textStatus);
+            UnloadWaitNotification();
+        },
+        complete: function () { UnloadWaitNotification(); }
+    });
+
+}
 
 </script>
 

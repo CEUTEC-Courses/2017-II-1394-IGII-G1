@@ -12,8 +12,11 @@ namespace ProyectoSoft2.Models.Usuario
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Rol de Usuario")]
+        [Display(Name = "Tipo de Usuario")]
         public string RoleUsuario { get; set; }
+
+        [Required]
+        public int Centro { get; set; }
 
         [Required]
         [StringLength(50)]
