@@ -284,6 +284,7 @@
     <Compile Include="Models\Centro\ListaAreasAsignadasACentroViewModel.cs" />
     <Compile Include="Models\Curso\ListaAlumnosAsignadosACurso.cs" />
     <Compile Include="Models\Curso\ListaIntructorAsignadoACurso.cs" />
+    <Compile Include="Models\Curso\ListaModulosAsignadosACurso.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Role\RoleViewModel.cs" />
@@ -1050,6 +1051,7 @@
     <Content Include="Views\Centros\MostrarModalListaAreas.cshtml" />
     <Content Include="Views\Cursos\MostrarModalListaAlumnos.cshtml" />
     <Content Include="Views\Cursos\MostrarModalListaInstructor.cshtml" />
+    <Content Include="Views\Cursos\MostrarModalListaModulos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -80,7 +80,36 @@ namespace ProyectoSoft2.Controllers
             }
         }
 
+        //Asignar Modulos a Curso
+        [HttpGet]
+        public ActionResult MostrarModalListaModulos(int id)
+        {
+            using (var context = new courageproEntities())
+            {
+                ViewBag.IdCurso = id;
+                var list = context.Modulos.Select(x => new ListaModulosAsignadosACurso { IdModulo = x.IdModulo, NombreModulo = x.NombreModulo, EstaAsignado = x.ModulosPorCurso.Any(y => y.IdCurso == id) }).ToList();
+                return PartialView(list);
+            }
+        }
 
+        [HttpPost]
+        public ActionResult GuardarAsignacionDeModulosACurso(List<int> Lista, int IdCurso)
+        {
+            using (var context = new courageproEntities())
+            {
+                var listaAborrar = context.ModulosPorCurso.Where(x => x.IdCurso == IdCurso).ToList();
+                context.ModulosPorCurso.RemoveRange(listaAborrar);
+                if (Lista != null) Lista.ForEach(x => context.ModulosPorCurso.Add(new ModulosPorCurso { IdModulo = x, IdCurso = IdCurso }));
+                var resultado = context.SaveChanges() > 0;
+                return Json(new MensajeRespuestaViewModel
+                {
+                    Titulo = "Asignar Modulo a Curso",
+                    Mensaje = resultado ? "Se guardo Satisfactoriamente" : "Error al guardar",
+                    Estado = resultado
+                }, JsonRequestBehavior.AllowGet);
+
+            }
+        }
 
 
 
