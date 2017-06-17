@@ -431,6 +431,7 @@
     <Content Include="img\sort_both.png" />
     <Content Include="img\sort_desc.png" />
     <Content Include="img\sort_desc_disabled.png" />
+    <Content Include="img\spalogo.png" />
     <Content Include="img\splash\ipad-landscape.png" />
     <Content Include="img\splash\ipad-portrait.png" />
     <Content Include="img\splash\iphone.png" />

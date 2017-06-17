@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ProyectoSoft2.Controllers
 {
-    [Authorize]
+   
     public class HomeController : Controller
     {
         public ActionResult Index()

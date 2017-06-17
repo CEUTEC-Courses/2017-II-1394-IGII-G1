@@ -44,7 +44,7 @@ namespace ProyectoSoft2.Controllers
                     BirthDate = x.FechaNacimiento,
                     Email = x.AspNetUsers.Email,
                     Estado = true,
-                    TipoUsuario = x.AspNetUsers.AspNetRoles.Any()? x.AspNetUsers.AspNetRoles.FirstOrDefault().Name :"",
+                    TipoUsuario = x.AspNetUsers.AspNetRoles.Any() ? x.AspNetUsers.AspNetRoles.FirstOrDefault().Name : "",
                     Centro = x.IdCentro.ToString()
 
                 }).ToList();
