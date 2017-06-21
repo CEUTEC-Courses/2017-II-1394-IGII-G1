@@ -26,7 +26,6 @@ namespace ProyectoSoft2.DB
         }
     
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<AlumnoPorCurso> AlumnoPorCurso { get; set; }
         public virtual DbSet<Areas> Areas { get; set; }
         public virtual DbSet<AreasPorCentro> AreasPorCentro { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
@@ -35,13 +34,14 @@ namespace ProyectoSoft2.DB
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Centros> Centros { get; set; }
         public virtual DbSet<Cursos> Cursos { get; set; }
-        public virtual DbSet<InstructorPorCurso> InstructorPorCurso { get; set; }
+        public virtual DbSet<MatriculaCurso> MatriculaCurso { get; set; }
         public virtual DbSet<Modulos> Modulos { get; set; }
         public virtual DbSet<ModulosPorCurso> ModulosPorCurso { get; set; }
         public virtual DbSet<Preguntas> Preguntas { get; set; }
         public virtual DbSet<PreguntasPorPrueba> PreguntasPorPrueba { get; set; }
         public virtual DbSet<Pruebas> Pruebas { get; set; }
         public virtual DbSet<Respuestas> Respuestas { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }

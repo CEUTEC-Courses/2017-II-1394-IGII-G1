@@ -248,6 +248,20 @@
 
                     </ul>
                 </li>
+               
+                <li>
+                    <a href="#" title="Matricula"><i class="fa fa-fw fa-clipboard"></i><span class="menu-item-parent">  Matricula</span></a>
+                    <ul>
+                        <li class="">
+                            <a href="@Url.Action("Index","Matricula")" title="Usuario"><span class="menu-item-parent"> Listar Matricula</span></a>
+                        </li>
+                        <li class="">
+                            <a href="@Url.Action("Create","Matricula")" title="Usuario"><span class="menu-item-parent"> Crear Matricula</span></a>
+                        </li>
+
+                    </ul>
+                </li>
+
 
                 <li>
                     <a href="#" title="Mantenimiento"><i class="fa fa-fw fa-cog"></i><span class="menu-item-parent">  Mantenimiento</span></a>
@@ -331,8 +345,8 @@
     <div class="modal" id="modalWaitingTime" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="">
         <div class="modal-dialog" role="document" style="margin-top: 15%;">
             <div class="modal-body text-center">
-                <center><img src="~/img/logo-white.png" class="status2" style="color: #fff;" /></center>
-                <h5><small><span style="color: #fff;">Procesando Consulta...</span></small></h5>
+                <center><span id="logo" class="text-center fa-2x" style="color:white; margin-top:0;"><big><b><i class="fa fa-check-square-o" style="color:greenyellow;"></i>SPA</b></big> </span></center>
+                <h5><small><span style="color: #fff;">Cargando...</span></small></h5>
             </div>
         </div>
 
@@ -351,20 +365,6 @@
     <script>
         $(document).ready(function () {
 
-           
-            @*@if( TempData["ResponseMessage"] !=null)
-       {
-           var info = TempData["ResponseMessage"] as ResponseMessageViewModel;
-           if(info.Success)
-           {
-               <text> ShowboxSuccess("@info.Message", "@info.Title")</text>
-           }
-           else
-           {
-               <text> ShowboxError("@info.Message", "@info.Title")</text>
-           }
-
-       }*@
 
         });
     </script>

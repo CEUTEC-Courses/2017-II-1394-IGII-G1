@@ -16,9 +16,6 @@ namespace ProyectoSoft2.Models.Usuario
         public string RoleUsuario { get; set; }
 
         [Required]
-        public int Centro { get; set; }
-
-        [Required]
         [StringLength(50)]
         [Display(Name = "Nombre")]
         public string FirstName { get; set; }

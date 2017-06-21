@@ -43,9 +43,9 @@
                             </td>
                             <td>
                                 @Html.ActionLink("Edit", "Edit", new { id = item.IdCurso }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.IdCurso }) | 
-                                <a type="button" onclick="MostrarModalLista(@item.IdCurso, 'MostrarModalListaAlumnos', 'Alumno')" href="#">Asignar Alumnos</a> |
-                                <a type="button" onclick="MostrarModalLista(@item.IdCurso, 'MostrarModalListaInstructor','Instructor')" href="#">Asignar Instructor</a>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.IdCurso }) 
+                                @*<a type="button" onclick="MostrarModalLista(@item.IdCurso, 'MostrarModalListaAlumnos', 'Alumno')" href="#">Asignar Alumnos</a> |
+                                <a type="button" onclick="MostrarModalLista(@item.IdCurso, 'MostrarModalListaInstructor','Instructor')" href="#">Asignar Instructor</a>*@
                             </td>
                         </tr>
                     }

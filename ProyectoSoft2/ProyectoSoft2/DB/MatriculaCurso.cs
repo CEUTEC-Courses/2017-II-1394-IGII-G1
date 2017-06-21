@@ -12,12 +12,16 @@ namespace ProyectoSoft2.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class AlumnoPorCurso
+    public partial class MatriculaCurso
     {
-        public int IdAlumnoPorCurso { get; set; }
+        public int Id { get; set; }
         public int IdUsuario { get; set; }
         public int IdCurso { get; set; }
+        public int IdCentro { get; set; }
+        public bool Estado { get; set; }
+        public bool EsAlumno { get; set; }
     
+        public virtual Centros Centros { get; set; }
         public virtual Cursos Cursos { get; set; }
         public virtual Usuarios Usuarios { get; set; }
     }

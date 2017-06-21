@@ -14,9 +14,10 @@ namespace ProyectoSoft2.DB
     
     public partial class PreguntasPorPrueba
     {
-        public int IdPreguntasPorPrueba { get; set; }
-        public int IdPregunta { get; set; }
+        public int Id { get; set; }
         public int IdPrueba { get; set; }
+        public int IdPregunta { get; set; }
+        public bool Estado { get; set; }
     
         public virtual Preguntas Preguntas { get; set; }
         public virtual Pruebas Pruebas { get; set; }

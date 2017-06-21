@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CourageproModelStoreContainer" CdmEntityContainer="courageproEntities">
+  <EntityContainerMapping StorageEntityContainer="courageproModelStoreContainer" CdmEntityContainer="courageproEntities">
     <EntitySetMapping Name="C__MigrationHistory">
-      <EntityTypeMapping TypeName="CourageproModel.C__MigrationHistory">
+      <EntityTypeMapping TypeName="courageproModel.C__MigrationHistory">
         <MappingFragment StoreEntitySet="__MigrationHistory">
           <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
           <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
@@ -11,17 +11,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AlumnoPorCurso">
-      <EntityTypeMapping TypeName="CourageproModel.AlumnoPorCurso">
-        <MappingFragment StoreEntitySet="AlumnoPorCurso">
-          <ScalarProperty Name="IdAlumnoPorCurso" ColumnName="IdAlumnoPorCurso" />
-          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Areas">
-      <EntityTypeMapping TypeName="CourageproModel.Areas">
+      <EntityTypeMapping TypeName="courageproModel.Areas">
         <MappingFragment StoreEntitySet="Areas">
           <ScalarProperty Name="IdArea" ColumnName="IdArea" />
           <ScalarProperty Name="NombreArea" ColumnName="NombreArea" />
@@ -29,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AreasPorCentro">
-      <EntityTypeMapping TypeName="CourageproModel.AreasPorCentro">
+      <EntityTypeMapping TypeName="courageproModel.AreasPorCentro">
         <MappingFragment StoreEntitySet="AreasPorCentro">
           <ScalarProperty Name="IdAreasPorCentro" ColumnName="IdAreasPorCentro" />
           <ScalarProperty Name="IdArea" ColumnName="IdArea" />
@@ -38,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="CourageproModel.AspNetRoles">
+      <EntityTypeMapping TypeName="courageproModel.AspNetRoles">
         <MappingFragment StoreEntitySet="AspNetRoles">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -46,7 +37,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="CourageproModel.AspNetUserClaims">
+      <EntityTypeMapping TypeName="courageproModel.AspNetUserClaims">
         <MappingFragment StoreEntitySet="AspNetUserClaims">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -56,7 +47,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="CourageproModel.AspNetUserLogins">
+      <EntityTypeMapping TypeName="courageproModel.AspNetUserLogins">
         <MappingFragment StoreEntitySet="AspNetUserLogins">
           <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
           <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -65,7 +56,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="CourageproModel.AspNetUsers">
+      <EntityTypeMapping TypeName="courageproModel.AspNetUsers">
         <MappingFragment StoreEntitySet="AspNetUsers">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -83,7 +74,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Centros">
-      <EntityTypeMapping TypeName="CourageproModel.Centros">
+      <EntityTypeMapping TypeName="courageproModel.Centros">
         <MappingFragment StoreEntitySet="Centros">
           <ScalarProperty Name="IdCentro" ColumnName="IdCentro" />
           <ScalarProperty Name="NombreCentro" ColumnName="NombreCentro" />
@@ -92,7 +83,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cursos">
-      <EntityTypeMapping TypeName="CourageproModel.Cursos">
+      <EntityTypeMapping TypeName="courageproModel.Cursos">
         <MappingFragment StoreEntitySet="Cursos">
           <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
           <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
@@ -100,17 +91,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InstructorPorCurso">
-      <EntityTypeMapping TypeName="CourageproModel.InstructorPorCurso">
-        <MappingFragment StoreEntitySet="InstructorPorCurso">
-          <ScalarProperty Name="IdInstructorPorCurso" ColumnName="IdInstructorPorCurso" />
+    <EntitySetMapping Name="MatriculaCurso">
+      <EntityTypeMapping TypeName="courageproModel.MatriculaCurso">
+        <MappingFragment StoreEntitySet="MatriculaCurso">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="IdCentro" ColumnName="IdCentro" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="EsAlumno" ColumnName="EsAlumno" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Modulos">
-      <EntityTypeMapping TypeName="CourageproModel.Modulos">
+      <EntityTypeMapping TypeName="courageproModel.Modulos">
         <MappingFragment StoreEntitySet="Modulos">
           <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
           <ScalarProperty Name="NombreModulo" ColumnName="NombreModulo" />
@@ -118,7 +112,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ModulosPorCurso">
-      <EntityTypeMapping TypeName="CourageproModel.ModulosPorCurso">
+      <EntityTypeMapping TypeName="courageproModel.ModulosPorCurso">
         <MappingFragment StoreEntitySet="ModulosPorCurso">
           <ScalarProperty Name="IdModuloPorCurso" ColumnName="IdModuloPorCurso" />
           <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
@@ -127,61 +121,58 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Preguntas">
-      <EntityTypeMapping TypeName="CourageproModel.Preguntas">
+      <EntityTypeMapping TypeName="courageproModel.Preguntas">
         <MappingFragment StoreEntitySet="Preguntas">
           <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
-          <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PreguntasPorPrueba">
-      <EntityTypeMapping TypeName="CourageproModel.PreguntasPorPrueba">
+      <EntityTypeMapping TypeName="courageproModel.PreguntasPorPrueba">
         <MappingFragment StoreEntitySet="PreguntasPorPrueba">
-          <ScalarProperty Name="IdPreguntasPorPrueba" ColumnName="IdPreguntasPorPrueba" />
-          <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdPrueba" ColumnName="IdPrueba" />
+          <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pruebas">
-      <EntityTypeMapping TypeName="CourageproModel.Pruebas">
+      <EntityTypeMapping TypeName="courageproModel.Pruebas">
         <MappingFragment StoreEntitySet="Pruebas">
           <ScalarProperty Name="IdPrueba" ColumnName="IdPrueba" />
           <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="DuracionMin" ColumnName="DuracionMin" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Respuestas">
-      <EntityTypeMapping TypeName="CourageproModel.Respuestas">
+      <EntityTypeMapping TypeName="courageproModel.Respuestas">
         <MappingFragment StoreEntitySet="Respuestas">
           <ScalarProperty Name="IdRespuesta" ColumnName="IdRespuesta" />
           <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="RespuestaCorrecta" ColumnName="RespuestaCorrecta" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TipoUsuario">
-      <EntityTypeMapping TypeName="CourageproModel.TipoUsuario">
-        <MappingFragment StoreEntitySet="TipoUsuario">
-          <ScalarProperty Name="IdTipoUsuario" ColumnName="IdTipoUsuario" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="courageproModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="CourageproModel.Usuarios">
-        <MappingFragment StoreEntitySet="Usuarios">
-          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
-          <ScalarProperty Name="IdTipoUsuario" ColumnName="IdTipoUsuario" />
-          <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="CourageproModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="courageproModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
       <EndProperty Name="AspNetRoles">
         <ScalarProperty Name="Id" ColumnName="RoleId" />
       </EndProperty>
@@ -189,5 +180,16 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="courageproModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

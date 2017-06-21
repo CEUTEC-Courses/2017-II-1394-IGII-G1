@@ -18,8 +18,8 @@ namespace ProyectoSoft2.DB
         public Modulos()
         {
             this.ModulosPorCurso = new HashSet<ModulosPorCurso>();
-            this.Preguntas = new HashSet<Preguntas>();
             this.Pruebas = new HashSet<Pruebas>();
+            this.Preguntas = new HashSet<Preguntas>();
         }
     
         public int IdModulo { get; set; }
@@ -28,8 +28,8 @@ namespace ProyectoSoft2.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ModulosPorCurso> ModulosPorCurso { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Preguntas> Preguntas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pruebas> Pruebas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Preguntas> Preguntas { get; set; }
     }
 }

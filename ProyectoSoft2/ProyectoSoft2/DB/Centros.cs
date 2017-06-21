@@ -18,6 +18,7 @@ namespace ProyectoSoft2.DB
         public Centros()
         {
             this.AreasPorCentro = new HashSet<AreasPorCentro>();
+            this.MatriculaCurso = new HashSet<MatriculaCurso>();
         }
     
         public int IdCentro { get; set; }
@@ -26,5 +27,7 @@ namespace ProyectoSoft2.DB
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AreasPorCentro> AreasPorCentro { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MatriculaCurso> MatriculaCurso { get; set; }
     }
 }

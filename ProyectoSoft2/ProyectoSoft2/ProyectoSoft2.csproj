@@ -204,77 +204,78 @@
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MatriculaController.cs" />
     <Compile Include="Controllers\ModulosController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="DB\AlumnoPorCurso.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
-    </Compile>
     <Compile Include="DB\Areas.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AreasPorCentro.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetRoles.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetUserClaims.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetUserLogins.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AspNetUsers.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Centros.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Cursos.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\C__MigrationHistory.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\InstructorPorCurso.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+    <Compile Include="DB\MatriculaCurso.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ModelCourage.Context.cs">
+    <Compile Include="DB\ModelSPA.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCourage.Context.tt</DependentUpon>
+      <DependentUpon>ModelSPA.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ModelCourage.cs">
+    <Compile Include="DB\ModelSPA.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ModelCourage.Designer.cs">
+    <Compile Include="DB\ModelSPA.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCourage.edmx</DependentUpon>
+      <DependentUpon>ModelSPA.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Modulos.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\ModulosPorCurso.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Preguntas.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\PreguntasPorPrueba.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Pruebas.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Respuestas.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sysdiagrams.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Usuarios.cs">
-      <DependentUpon>ModelCourage.tt</DependentUpon>
+      <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -286,6 +287,8 @@
     <Compile Include="Models\Curso\ListaIntructorAsignadoACurso.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Matricula\ListaMatriculaViewModel.cs" />
+    <Compile Include="Models\Matricula\MatriculaViewModel.cs" />
     <Compile Include="Models\Role\RoleViewModel.cs" />
     <Compile Include="Models\Usuario\CambiarContrasenaViewModel.cs" />
     <Compile Include="Models\Usuario\EditarCuentaUsuarioViewModel.cs" />
@@ -312,15 +315,15 @@
     <Content Include="css\smartadmin-rtl.min.css" />
     <Content Include="css\smartadmin-skins.min.css" />
     <Content Include="css\your_style.css" />
-    <Content Include="DB\ModelCourage.Context.tt">
+    <Content Include="DB\ModelSPA.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelCourage.edmx</DependentUpon>
-      <LastGenOutput>ModelCourage.Context.cs</LastGenOutput>
+      <DependentUpon>ModelSPA.edmx</DependentUpon>
+      <LastGenOutput>ModelSPA.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\ModelCourage.tt">
+    <Content Include="DB\ModelSPA.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelCourage.edmx</DependentUpon>
-      <LastGenOutput>ModelCourage.cs</LastGenOutput>
+      <DependentUpon>ModelSPA.edmx</DependentUpon>
+      <LastGenOutput>ModelSPA.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome\fontawesome-webfont.svg" />
@@ -968,12 +971,12 @@
     <Content Include="js\plugin\datetimepicker-master\doc.tpl" />
     <Content Include="js\plugin\datetimepicker-master\package.json" />
     <Content Include="js\plugin\datetimepicker-master\README.md" />
-    <EntityDeploy Include="DB\ModelCourage.edmx">
+    <EntityDeploy Include="DB\ModelSPA.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelCourage.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelSPA.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DB\ModelCourage.edmx.diagram">
-      <DependentUpon>ModelCourage.edmx</DependentUpon>
+    <Content Include="DB\ModelSPA.edmx.diagram">
+      <DependentUpon>ModelSPA.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1051,6 +1054,8 @@
     <Content Include="Views\Centros\MostrarModalListaAreas.cshtml" />
     <Content Include="Views\Cursos\MostrarModalListaAlumnos.cshtml" />
     <Content Include="Views\Cursos\MostrarModalListaInstructor.cshtml" />
+    <Content Include="Views\Matricula\Index.cshtml" />
+    <Content Include="Views\Matricula\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

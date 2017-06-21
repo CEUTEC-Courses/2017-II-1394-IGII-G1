@@ -22,6 +22,9 @@ namespace ProyectoSoft2.DB
     
         public int IdPrueba { get; set; }
         public int IdModulo { get; set; }
+        public string Descripcion { get; set; }
+        public bool Estado { get; set; }
+        public int DuracionMin { get; set; }
     
         public virtual Modulos Modulos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

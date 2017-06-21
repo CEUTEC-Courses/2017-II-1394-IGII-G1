@@ -17,6 +17,7 @@ namespace ProyectoSoft2.DB
         public int IdRespuesta { get; set; }
         public int IdPregunta { get; set; }
         public string Descripcion { get; set; }
+        public bool RespuestaCorrecta { get; set; }
     
         public virtual Preguntas Preguntas { get; set; }
     }

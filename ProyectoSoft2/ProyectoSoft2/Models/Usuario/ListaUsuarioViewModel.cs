@@ -32,7 +32,5 @@ namespace ProyectoSoft2.Models.Usuario
         [Display(Name = "Estado")]
         public bool Estado { get; set; }
 
-        public string Centro { get; set; }
-
     }
 }

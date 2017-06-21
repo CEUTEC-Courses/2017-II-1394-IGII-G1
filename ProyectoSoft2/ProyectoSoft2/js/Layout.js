@@ -4,7 +4,7 @@ $(document).ready(function () {
 });
 
 
-$("*[data-class='ClaseNumber']").on("keypress", function (e) {
+$("*[data-class='ClassNumber']").on("keypress", function (e) {
     if (!isNumberKey(e)) e.preventDefault();
 })
 

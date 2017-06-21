@@ -17,21 +17,18 @@ namespace ProyectoSoft2.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cursos()
         {
-            this.AlumnoPorCurso = new HashSet<AlumnoPorCurso>();
-            this.InstructorPorCurso = new HashSet<InstructorPorCurso>();
             this.ModulosPorCurso = new HashSet<ModulosPorCurso>();
+            this.MatriculaCurso = new HashSet<MatriculaCurso>();
         }
     
         public int IdCurso { get; set; }
         public string NombreCurso { get; set; }
         public int IdArea { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AlumnoPorCurso> AlumnoPorCurso { get; set; }
         public virtual Areas Areas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InstructorPorCurso> InstructorPorCurso { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ModulosPorCurso> ModulosPorCurso { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MatriculaCurso> MatriculaCurso { get; set; }
     }
 }

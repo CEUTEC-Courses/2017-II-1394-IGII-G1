@@ -45,7 +45,6 @@ namespace ProyectoSoft2.Controllers
                     Email = x.AspNetUsers.Email,
                     Estado = true,
                     TipoUsuario = x.AspNetUsers.AspNetRoles.Any() ? x.AspNetUsers.AspNetRoles.FirstOrDefault().Name : "",
-                    Centro = x.IdCentro.ToString()
 
                 }).ToList();
                 var jsonResult = Json(listaUsuarios, JsonRequestBehavior.AllowGet);
@@ -145,7 +144,7 @@ namespace ProyectoSoft2.Controllers
                 usuario.Nombre = model.FirstName;
                 usuario.Apellido = model.LastName;
                 usuario.FechaNacimiento = model.BirthDate;
-
+                context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
                 var result = context.SaveChanges() > 0;
                 return Json(new MensajeRespuestaViewModel
                 {
@@ -174,7 +173,7 @@ namespace ProyectoSoft2.Controllers
                     Email = usuario.AspNetUsers.Email,
                     IdAspNetUser = usuario.IdAspNetUser,
                     RoleUsuario =  context.AspNetRoles.FirstOrDefault(x=>x.Name== roles.FirstOrDefault()).Id ,
-                    Centro = usuario.IdCentro??0   
+                   
                 });
 
             }
@@ -189,7 +188,7 @@ namespace ProyectoSoft2.Controllers
                     var usuario = context.Usuarios.Find(model.Id);
                      usuario.AspNetUsers.UserName = model.UserName;
                      usuario.AspNetUsers.Email = model.Email;
-                     usuario.IdCentro = model.Centro;
+                    
                     context.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
                     var roles = await UserManager.GetRolesAsync(model.IdAspNetUser);
                     await UserManager.RemoveFromRolesAsync(model.IdAspNetUser, roles.ToArray());

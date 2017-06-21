@@ -3,7 +3,6 @@
     ViewBag.Title = "Usuarios";
 }
 
-
     <div class="jarviswidget jarviswidget-color-blueDark" id="">
     <header role="heading">
         <span class="widget-icon"> <i class="fa fa-user"></i> </span>
@@ -115,7 +114,8 @@
             dataSrc: function (data) {
                 return data;
             }
-            },
+        },
+        responsive: true,
         "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6 hidden-xs'f><'col-sm-6 col-xs-12 hidden-xs'<'toolbar'>l>r>" +
         "t" +
         "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
@@ -142,7 +142,6 @@
                     opciones += ('<li><a href="javascript:void(0);" onclick="MostrarEditarCuenta(!' + data.Id + '!)"><i class="fa fa-pencil fa-lg fa-fw"></i> Editar Cuenta</a></li>').replace(new RegExp("!", 'g'), "'");
                     opciones += ('<li><a href="javascript:void(0);" onclick="MostrarEditarInfo(!' + data.Id + '!)"><i class="fa fa-pencil fa-lg fa-fw"></i> Editar Perfil</a></li>').replace(new RegExp("!", 'g'), "'");
                     opciones += ('<li><a href="javascript:void(0);" onclick="MostrarResetContrasena(!' + data.Id + '!)"><i class="fa fa-pencil fa-lg fa-fw"></i> Cambiar Contraseña</a></li>').replace(new RegExp("!", 'g'), "'");
-                    opciones += ('<li><a href="javascript:void(0);" onclick="Eliminar(!' + data.Id + '!)"><i class="fa fa-ban fa-lg fa-fw"></i> Eliminar</a></li>').replace(new RegExp("!", 'g'), "'");;
                     opciones += '</ul></div>';
                     return opciones;
                 }

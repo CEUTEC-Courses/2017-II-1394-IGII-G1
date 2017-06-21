@@ -17,18 +17,19 @@ namespace ProyectoSoft2.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Preguntas()
         {
-            this.PreguntasPorPrueba = new HashSet<PreguntasPorPrueba>();
             this.Respuestas = new HashSet<Respuestas>();
+            this.PreguntasPorPrueba = new HashSet<PreguntasPorPrueba>();
         }
     
         public int IdPregunta { get; set; }
-        public int IdModulo { get; set; }
         public string Descripcion { get; set; }
+        public bool Estado { get; set; }
+        public int IdModulo { get; set; }
     
         public virtual Modulos Modulos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PreguntasPorPrueba> PreguntasPorPrueba { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Respuestas> Respuestas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PreguntasPorPrueba> PreguntasPorPrueba { get; set; }
     }
 }

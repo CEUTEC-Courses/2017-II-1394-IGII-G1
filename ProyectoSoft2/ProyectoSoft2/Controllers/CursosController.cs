@@ -16,89 +16,69 @@ namespace ProyectoSoft2.Controllers
     public class CursosController : Controller
     {
 
-        //Asignar Alumnos a Curso
-        [HttpGet]
-        public ActionResult MostrarModalListaAlumnos(int id)
-        {
-            using (var context = new courageproEntities())
-            {
-                ViewBag.IdCurso = id;
-                var list = context.Usuarios.Where(x=>x.AspNetUsers.AspNetRoles.Any(y=>y.Name == "Alumno")).Select(x => new ListaAlumnosAsignadosACurso { IdAlumno = x.IdUsuario, Nombre = x.Nombre+" "+x.Apellido, EstaAsignado = x.AlumnoPorCurso.Any(y => y.IdCurso == id) }).ToList();
-                return PartialView(list);
-            }
+        ////Asignar Alumnos a Curso
+        //[HttpGet]
+        //public ActionResult MostrarModalListaAlumnos(int id)
+        //{
+        //    using (var context = new courageproEntities())
+        //    {
+        //        ViewBag.IdCurso = id;
+        //        var list = context.Usuarios.Where(x=>x.AspNetUsers.AspNetRoles.Any(y=>y.Name == "Alumno")).Select(x => new ListaAlumnosAsignadosACurso { IdAlumno = x.IdUsuario, Nombre = x.Nombre+" "+x.Apellido, EstaAsignado = x.AlumnoPorCurso.Any(y => y.IdCurso == id) }).ToList();
+        //        return PartialView(list);
+        //    }
 
-        }
+        //}
 
-        [HttpPost]
-        public ActionResult GuardarAsignacionDeAlumnosACurso(List<int> Lista, int IdCurso)
-        {
-            using (var context = new courageproEntities())
-            {
-                var listaAborrar = context.AlumnoPorCurso.Where(x => x.IdCurso == IdCurso).ToList();
-                context.AlumnoPorCurso.RemoveRange(listaAborrar);
-                if (Lista != null) Lista.ForEach(x => context.AlumnoPorCurso.Add(new AlumnoPorCurso { IdUsuario = x, IdCurso = IdCurso }));
-                var resultado = context.SaveChanges() > 0;
-                return Json(new MensajeRespuestaViewModel
-                {
-                    Titulo = "Asignar Alumno a Curso",
-                    Mensaje = resultado ? "Se guardo Satisfactoriamente" : "Error al guardar",
-                    Estado = resultado
-                }, JsonRequestBehavior.AllowGet);
+        //[HttpPost]
+        //public ActionResult GuardarAsignacionDeAlumnosACurso(List<int> Lista, int IdCurso)
+        //{
+        //    using (var context = new courageproEntities())
+        //    {
+        //        var listaAborrar = context.AlumnoPorCurso.Where(x => x.IdCurso == IdCurso).ToList();
+        //        context.AlumnoPorCurso.RemoveRange(listaAborrar);
+        //        if (Lista != null) Lista.ForEach(x => context.AlumnoPorCurso.Add(new AlumnoPorCurso { IdUsuario = x, IdCurso = IdCurso }));
+        //        var resultado = context.SaveChanges() > 0;
+        //        return Json(new MensajeRespuestaViewModel
+        //        {
+        //            Titulo = "Asignar Alumno a Curso",
+        //            Mensaje = resultado ? "Se guardo Satisfactoriamente" : "Error al guardar",
+        //            Estado = resultado
+        //        }, JsonRequestBehavior.AllowGet);
 
-            }
-        }
+        //    }
+        //}
 
-        //Asignar Instructor a Curso
-        [HttpGet]
-        public ActionResult MostrarModalListaInstructor(int id)
-        {
-            using (var context = new courageproEntities())
-            {
-                ViewBag.IdCurso = id;
-                var list = context.Usuarios.Where(x => x.AspNetUsers.AspNetRoles.Any(y => y.Name == "Instructor")).Select(x => new ListaIntructorAsignadoACurso { IdInstructor = x.IdUsuario, Nombre = x.Nombre + " " + x.Apellido, EstaAsignado = x.InstructorPorCurso.Any(y => y.IdCurso == id) }).ToList();
-                return PartialView(list);
-            }
+        ////Asignar Instructor a Curso
+        //[HttpGet]
+        //public ActionResult MostrarModalListaInstructor(int id)
+        //{
+        //    using (var context = new courageproEntities())
+        //    {
+        //        ViewBag.IdCurso = id;
+        //        var list = context.Usuarios.Where(x => x.AspNetUsers.AspNetRoles.Any(y => y.Name == "Instructor")).Select(x => new ListaIntructorAsignadoACurso { IdInstructor = x.IdUsuario, Nombre = x.Nombre + " " + x.Apellido, EstaAsignado = x.InstructorPorCurso.Any(y => y.IdCurso == id) }).ToList();
+        //        return PartialView(list);
+        //    }
 
-        }
+        //}
 
-        [HttpPost]
-        public ActionResult GuardarAsignacionDeInstructorACurso(List<int> Lista, int IdCurso)
-        {
-            using (var context = new courageproEntities())
-            {
-                var listaAborrar = context.InstructorPorCurso.Where(x => x.IdCurso == IdCurso).ToList();
-                context.InstructorPorCurso.RemoveRange(listaAborrar);
-                if (Lista != null) Lista.ForEach(x => context.InstructorPorCurso.Add(new InstructorPorCurso { IdUsuario = x, IdCurso = IdCurso }));
-                var resultado = context.SaveChanges() > 0;
-                return Json(new MensajeRespuestaViewModel
-                {
-                    Titulo = "Asignar Instructor a Curso",
-                    Mensaje = resultado ? "Se guardo Satisfactoriamente" : "Error al guardar",
-                    Estado = resultado
-                }, JsonRequestBehavior.AllowGet);
+        //[HttpPost]
+        //public ActionResult GuardarAsignacionDeInstructorACurso(List<int> Lista, int IdCurso)
+        //{
+        //    using (var context = new courageproEntities())
+        //    {
+        //        var listaAborrar = context.InstructorPorCurso.Where(x => x.IdCurso == IdCurso).ToList();
+        //        context.InstructorPorCurso.RemoveRange(listaAborrar);
+        //        if (Lista != null) Lista.ForEach(x => context.InstructorPorCurso.Add(new InstructorPorCurso { IdUsuario = x, IdCurso = IdCurso }));
+        //        var resultado = context.SaveChanges() > 0;
+        //        return Json(new MensajeRespuestaViewModel
+        //        {
+        //            Titulo = "Asignar Instructor a Curso",
+        //            Mensaje = resultado ? "Se guardo Satisfactoriamente" : "Error al guardar",
+        //            Estado = resultado
+        //        }, JsonRequestBehavior.AllowGet);
 
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //    }
+        //}
 
         private courageproEntities db = new courageproEntities();
 
