@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="courageproModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="__MigrationHistory">
-    <Key>
-      <PropertyRef Name="MigrationId" />
-      <PropertyRef Name="ContextKey" />
-    </Key>
-    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-  </EntityType>
+<Schema Namespace="courageProModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Areas">
     <Key>
       <PropertyRef Name="IdArea" />
@@ -155,16 +145,6 @@
     <Property Name="Descripcion" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="RespuestaCorrecta" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="Usuarios">
     <Key>
       <PropertyRef Name="IdUsuario" />
@@ -175,7 +155,7 @@
     <Property Name="FechaNacimiento" Type="date" Nullable="false" />
     <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
   </EntityType>
-  <Association Name="FK__AreasPorC__IdAre__08B54D69">
+  <Association Name="FK__AreasPorC__IdAre__2F10007B">
     <End Role="Areas" Type="Self.Areas" Multiplicity="1" />
     <End Role="AreasPorCentro" Type="Self.AreasPorCentro" Multiplicity="*" />
     <ReferentialConstraint>
@@ -187,7 +167,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__AreasPorC__IdCen__09A971A2">
+  <Association Name="FK__AreasPorC__IdCen__300424B4">
     <End Role="Centros" Type="Self.Centros" Multiplicity="1" />
     <End Role="AreasPorCentro" Type="Self.AreasPorCentro" Multiplicity="*" />
     <ReferentialConstraint>
@@ -199,7 +179,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Cursos__IdArea__0C85DE4D">
+  <Association Name="FK__Cursos__IdArea__34C8D9D1">
     <End Role="Areas" Type="Self.Areas" Multiplicity="1" />
     <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
     <ReferentialConstraint>
@@ -211,7 +191,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ModulosPo__IdCur__123EB7A3">
+  <Association Name="FK__ModulosPo__IdCur__38996AB5">
     <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
     <End Role="ModulosPorCurso" Type="Self.ModulosPorCurso" Multiplicity="*" />
     <ReferentialConstraint>
@@ -223,7 +203,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ModulosPo__IdMod__114A936A">
+  <Association Name="FK__ModulosPo__IdMod__398D8EEE">
     <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
     <End Role="ModulosPorCurso" Type="Self.ModulosPorCurso" Multiplicity="*" />
     <ReferentialConstraint>
@@ -235,7 +215,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Pruebas__IdModul__4E53A1AA">
+  <Association Name="FK__Pruebas__IdModul__3D5E1FD2">
     <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
     <End Role="Pruebas" Type="Self.Pruebas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -247,7 +227,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Respuesta__IdPre__51300E55">
+  <Association Name="FK__Respuesta__IdPre__3E52440B">
     <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="1" />
     <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -399,39 +379,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <EntityContainer Name="courageproModelStoreContainer">
-    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+  <EntityContainer Name="courageProModelStoreContainer">
     <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AreasPorCentro" EntityType="Self.AreasPorCentro" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -448,33 +396,32 @@
     <EntitySet Name="PreguntasPorPrueba" EntityType="Self.PreguntasPorPrueba" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pruebas" EntityType="Self.Pruebas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Respuestas" EntityType="Self.Respuestas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__AreasPorC__IdAre__08B54D69" Association="Self.FK__AreasPorC__IdAre__08B54D69">
+    <AssociationSet Name="FK__AreasPorC__IdAre__2F10007B" Association="Self.FK__AreasPorC__IdAre__2F10007B">
       <End Role="Areas" EntitySet="Areas" />
       <End Role="AreasPorCentro" EntitySet="AreasPorCentro" />
     </AssociationSet>
-    <AssociationSet Name="FK__AreasPorC__IdCen__09A971A2" Association="Self.FK__AreasPorC__IdCen__09A971A2">
+    <AssociationSet Name="FK__AreasPorC__IdCen__300424B4" Association="Self.FK__AreasPorC__IdCen__300424B4">
       <End Role="Centros" EntitySet="Centros" />
       <End Role="AreasPorCentro" EntitySet="AreasPorCentro" />
     </AssociationSet>
-    <AssociationSet Name="FK__Cursos__IdArea__0C85DE4D" Association="Self.FK__Cursos__IdArea__0C85DE4D">
+    <AssociationSet Name="FK__Cursos__IdArea__34C8D9D1" Association="Self.FK__Cursos__IdArea__34C8D9D1">
       <End Role="Areas" EntitySet="Areas" />
       <End Role="Cursos" EntitySet="Cursos" />
     </AssociationSet>
-    <AssociationSet Name="FK__ModulosPo__IdCur__123EB7A3" Association="Self.FK__ModulosPo__IdCur__123EB7A3">
+    <AssociationSet Name="FK__ModulosPo__IdCur__38996AB5" Association="Self.FK__ModulosPo__IdCur__38996AB5">
       <End Role="Cursos" EntitySet="Cursos" />
       <End Role="ModulosPorCurso" EntitySet="ModulosPorCurso" />
     </AssociationSet>
-    <AssociationSet Name="FK__ModulosPo__IdMod__114A936A" Association="Self.FK__ModulosPo__IdMod__114A936A">
+    <AssociationSet Name="FK__ModulosPo__IdMod__398D8EEE" Association="Self.FK__ModulosPo__IdMod__398D8EEE">
       <End Role="Modulos" EntitySet="Modulos" />
       <End Role="ModulosPorCurso" EntitySet="ModulosPorCurso" />
     </AssociationSet>
-    <AssociationSet Name="FK__Pruebas__IdModul__4E53A1AA" Association="Self.FK__Pruebas__IdModul__4E53A1AA">
+    <AssociationSet Name="FK__Pruebas__IdModul__3D5E1FD2" Association="Self.FK__Pruebas__IdModul__3D5E1FD2">
       <End Role="Modulos" EntitySet="Modulos" />
       <End Role="Pruebas" EntitySet="Pruebas" />
     </AssociationSet>
-    <AssociationSet Name="FK__Respuesta__IdPre__51300E55" Association="Self.FK__Respuesta__IdPre__51300E55">
+    <AssociationSet Name="FK__Respuesta__IdPre__3E52440B" Association="Self.FK__Respuesta__IdPre__3E52440B">
       <End Role="Preguntas" EntitySet="Preguntas" />
       <End Role="Respuestas" EntitySet="Respuestas" />
     </AssociationSet>

@@ -233,9 +233,6 @@
     <Compile Include="DB\Cursos.cs">
       <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\C__MigrationHistory.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
-    </Compile>
     <Compile Include="DB\MatriculaCurso.cs">
       <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
@@ -270,15 +267,6 @@
       <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Respuestas.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\sp_helpdiagrams_Result.cs">
-      <DependentUpon>ModelSPA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\sysdiagrams.cs">
       <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Usuarios.cs">
