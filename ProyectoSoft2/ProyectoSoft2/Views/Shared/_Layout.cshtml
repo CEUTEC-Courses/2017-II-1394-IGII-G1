@@ -41,7 +41,7 @@
 
 </head>
 
-<body class="smart-style-1">
+<body class="smart-style-1 menu-on-top">
     <!-- Modal -->
     <!-- Modal -->
     <div id="MyModalClean" class="modal fade" role="dialog" data-backdrop='static' data-keyboard="false">
@@ -88,7 +88,7 @@
             <!-- PLACE YOUR LOGO HERE -->
             <span id="logo" class="text-center fa-2x" style="color:white; margin-top:0;"><big><b><i class="fa fa-check-square-o" style="color:greenyellow;"></i>SPA</b></big> </span>
           
-            <!-- END LOGO PLACEHOLDER -->
+            @*<!-- END LOGO PLACEHOLDER -->
             <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge"> 21 </b> </span>
 
             <!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
@@ -132,7 +132,7 @@
                 <!-- end footer -->
 
             </div>
-            <!-- END AJAX-DROPDOWN -->
+            <!-- END AJAX-DROPDOWN -->*@
         </div>
 
         <!-- #PROJECTS: projects dropdown -->
@@ -156,23 +156,23 @@
                     </a>
                     <ul class="dropdown-menu pull-right">
                         <li>
-                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Configuracion</a>
                         </li>
                         <li class="divider"></li>
-                        <li>
+                        @*<li>
                             <a href="#ajax/profile.html" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> <u>P</u>rofile</a>
                         </li>
-                        <li class="divider"></li>
+                        <li class="divider"></li>*@
                         <li>
-                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> Atajo</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full <u>S</u>creen</a>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Pantalla Completa</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+                            <a href="@Url.Action("LogOff", "Account")" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>C</u>errar Sesion</strong></a>
                         </li>
                     </ul>
                 </li>
@@ -180,7 +180,7 @@
 
             <!-- logout button -->
             <div id="logout" class="btn-header transparent pull-right">
-                <span> <a href="@Url.Action("LogOff", "Account")" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+                <span> <a href="@Url.Action("LogOff", "Account")" title="Sign Out" data-action="userLogout" data-logout-msg="Esta seguro que desea Cerrar Sesion?"><i class="fa fa-sign-out"></i></a> </span>
             </div>
             <!-- end logout button -->
             <!-- search mobile button (this is hidden till mobile view port) -->
@@ -236,52 +236,52 @@
                 <li class="">
                     <a href="@Url.Action("Index","Home")" title="blank_"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">  Inicio</span></a>
                 </li>
-                <li>
-                    <a href="#" title="Gestion de Usuarios"><i class="fa fa-fw fa-user"></i><span class="menu-item-parent">  Gestion Usuarios</span></a>
-                    <ul>
-                        <li class="">
-                            <a href="@Url.Action("Index","Usuario")" title="Usuario"><span class="menu-item-parent"> Usuarios</span></a>
-                        </li>
-                        <li class="">
-                            <a href="@Url.Action("Index","Role")" title="Usuario"><span class="menu-item-parent"> Roles</span></a>
-                        </li>
+                @if (User.IsInRole("Administrador"))
+                {
+                    <li>
+                        <a href="#" title="Gestion de Usuarios"><i class="fa fa-fw fa-user"></i><span class="">  Gestion Usuarios</span></a>
+                        <ul>
+                            <li class="">
+                                <a href="@Url.Action("Index","Usuario")" title="Usuario"><span class="menu-item-parent"> Usuarios</span></a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("Index","Role")" title="Usuario"><span class="menu-item-parent"> Roles</span></a>
+                            </li>
 
-                    </ul>
-                </li>
-               
-                <li>
-                    <a href="#" title="Matricula"><i class="fa fa-fw fa-clipboard"></i><span class="menu-item-parent">  Matricula</span></a>
-                    <ul>
-                        <li class="">
-                            <a href="@Url.Action("Index","Matricula")" title="Usuario"><span class="menu-item-parent"> Listar Matricula</span></a>
-                        </li>
-                        <li class="">
-                            <a href="@Url.Action("Create","Matricula")" title="Usuario"><span class="menu-item-parent"> Crear Matricula</span></a>
-                        </li>
+                        </ul>
+                    </li>
 
-                    </ul>
-                </li>
+                    <li>
+                        <a href="#" title="Mantenimiento"><i class="fa fa-fw fa-cog"></i><span class="">  Mantenimiento</span></a>
+                        <ul>
+                            <li class="">
+                                <a href="@Url.Action("Index","Areas")" title="Usuario"><span class="menu-item-parent"> Areas</span></a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("Index","Centros")" title="Usuario"><span class="menu-item-parent"> Centros</span></a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("Index","Cursos")" title="Usuario"><span class="menu-item-parent"> Cursos</span></a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("Index","Modulos")" title="Usuario"><span class="menu-item-parent"> Modulos</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" title="Matricula"><i class="fa fa-fw fa-clipboard"></i><span class="">  Matricula</span></a>
+                        <ul>
+                            <li class="">
+                                <a href="@Url.Action("Index","Matricula")" title="Usuario"><span class=""> Listar Matricula</span></a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("Create","Matricula")" title="Usuario"><span class=""> Crear Matricula</span></a>
+                            </li>
 
+                        </ul>
+                    </li>
+                }          
 
-                <li>
-                    <a href="#" title="Mantenimiento"><i class="fa fa-fw fa-cog"></i><span class="menu-item-parent">  Mantenimiento</span></a>
-                    <ul>
-                        <li class="">
-                            <a href="@Url.Action("Index","Areas")" title="Usuario"><span class="menu-item-parent"> Areas</span></a>
-                        </li>
-                        <li class="">
-                            <a href="@Url.Action("Index","Centros")" title="Usuario"><span class="menu-item-parent"> Centros</span></a>
-                        </li>
-                        <li class="">
-                            <a href="@Url.Action("Index","Cursos")" title="Usuario"><span class="menu-item-parent"> Cursos</span></a>
-                        </li>
-                        <li class="">
-                            <a href="@Url.Action("Index","Modulos")" title="Usuario"><span class="menu-item-parent"> Modulos</span></a>
-                        </li>
-                       
-
-                    </ul>
-                </li>
             </ul>    
         </nav>
 
@@ -310,7 +310,7 @@
 
         </div>*@
 
-        <div style="padding:20px;">
+        <div style="padding:100px; padding-top:20px;">
             @RenderBody()
 
         </div>
@@ -335,7 +335,7 @@
     <div id="shortcut">
         <ul>
             <li>
-                <a href="#" class="jarvismetro-tile big-cubes bg-color-blue text-center" onclick="ShowChangePasswordUserLogged()"> <span class="iconbox"> <i class="fa fa-asterisk fa-4x"></i> <span>Change Password </span> </span> </a>
+                <a href="#" class="jarvismetro-tile big-cubes bg-color-blue text-center" onclick="ShowChangePasswordUserLogged()"> <span class="iconbox"> <i class="fa fa-asterisk fa-4x"></i> <span>Camb Contrasena</span> </span> </a>
             </li>
         </ul>
     </div>

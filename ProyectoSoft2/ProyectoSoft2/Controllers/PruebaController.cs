@@ -127,6 +127,14 @@ namespace ProyectoSoft2.Controllers
             }
         }
 
-
+        courageproEntities conexion = new courageproEntities();
+        [HttpGet]
+        public ActionResult MostrarRealizarPrueba(int id)
+        {       
+            return View(conexion.Pruebas.Find(id));
         }
+
+
+
+    }
 }

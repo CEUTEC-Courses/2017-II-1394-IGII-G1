@@ -69,17 +69,21 @@ function ShowForgotPassword()
 
 
 function ShowChangePasswordUserLogged() {
+      LoadWaitNotification();
     $.ajax({
         url: "/Manage/ChangePassword",
         type: "GET",
         success: function (data) {
-            $("#MyModalBodyClean").html(data);
-            $("#MyModalClean").modal("show");
-        },
-        error: function (data) {
-            alert("error");
-        }
-    });
+           $("#MyModalTitle").html("Cambiar Contraseña");
+            $("#MyModalBody").html(data);
+            $("#MyModal").modal("show");
+           },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(textStatus + ": Cambiar Contrasena");
+                UnloadWaitNotification();
+            },
+            complete: function () { UnloadWaitNotification(); }
+  });
 }
 
 function ShowboxWarning(message, title) {

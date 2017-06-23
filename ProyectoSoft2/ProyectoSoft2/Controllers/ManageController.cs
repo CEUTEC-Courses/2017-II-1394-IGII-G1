@@ -217,7 +217,7 @@ namespace ProyectoSoft2.Controllers
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
         {
-            return View();
+            return PartialView();
         }
 
         //
