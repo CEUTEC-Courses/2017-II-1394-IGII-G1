@@ -16,18 +16,50 @@ namespace ProyectoSoft2.Controllers
     public class CursosController : Controller
     {
 
-        ////Asignar Alumnos a Curso
-        //[HttpGet]
-        //public ActionResult MostrarModalListaAlumnos(int id)
-        //{
-        //    using (var context = new courageproEntities())
-        //    {
-        //        ViewBag.IdCurso = id;
-        //        var list = context.Usuarios.Where(x=>x.AspNetUsers.AspNetRoles.Any(y=>y.Name == "Alumno")).Select(x => new ListaAlumnosAsignadosACurso { IdAlumno = x.IdUsuario, Nombre = x.Nombre+" "+x.Apellido, EstaAsignado = x.AlumnoPorCurso.Any(y => y.IdCurso == id) }).ToList();
-        //        return PartialView(list);
-        //    }
+        //Asignar Modulos a Curso
+        [HttpGet]
+        public ActionResult MostrarModalListaModulos(int id)
+        {
+            using (var context = new courageproEntities())
+            {
+                ViewBag.IdCurso = id;
+                var list = context.Modulos.Select(x => new ListaModulosAsignadosACurso { IdModulo = x.IdModulo, Nombre = x.NombreModulo, EstaAsignado = x.ModulosPorCurso.Any(y => y.IdCurso == id) }).ToList();
+                return PartialView(list);
+            }
 
-        //}
+        }
+        [HttpPost]
+        public ActionResult GuardarAsignacionDeModulosACurso(List<int> Lista, int IdCurso)
+        {
+            try
+            {
+                using (var context = new courageproEntities())
+                {
+                   // var listaAborrar = context.ModulosPorCurso.Where(x => x.IdCurso == IdCurso).ToList();
+                  //  context.ModulosPorCurso.RemoveRange(listaAborrar);
+                    if (Lista != null) Lista.ForEach(x =>
+                    { if (!context.ModulosPorCurso.Any(y => y.IdModulo == x && y.IdCurso == IdCurso)) context.ModulosPorCurso.Add(new ModulosPorCurso { IdModulo = x, IdCurso = IdCurso }); }
+                    );
+                    var resultado = context.SaveChanges() > 0;
+                    return Json(new MensajeRespuestaViewModel
+                    {
+                        Titulo = "Asignar Modulo a Curso",
+                        Mensaje = resultado ? "Se guardo Satisfactoriamente" : "Error al guardar",
+                        Estado = resultado
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception e)
+            {
+                return Json(new MensajeRespuestaViewModel
+                {
+                    Titulo = "Error al asignar Modulo a Curso",
+                    Mensaje = e.InnerException.Message,
+                    Estado = false
+                }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
 
         //[HttpPost]
         //public ActionResult GuardarAsignacionDeAlumnosACurso(List<int> Lista, int IdCurso)

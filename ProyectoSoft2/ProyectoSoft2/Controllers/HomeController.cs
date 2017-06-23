@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoSoft2.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,7 +8,7 @@ using System.Web.Mvc;
 namespace ProyectoSoft2.Controllers
 {
    
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
@@ -27,5 +28,22 @@ namespace ProyectoSoft2.Controllers
 
             return View();
         }
+        courageproEntities conexion = new courageproEntities();
+        [HttpGet]
+        public ActionResult MostrarModulosMatriculados()
+        {
+                var idusuario = ObtenerIdUsuario();
+                var listModulos = conexion.Cursos.Where(y => y.MatriculaCurso.Any(z => z.IdUsuario == idusuario)).ToList();
+                return PartialView(listModulos);
+        }
+
+        public ActionResult MostrarModulosMatriculadosInstructor()
+        {
+            var idusuario = ObtenerIdUsuario();
+            var listModulos = conexion.Cursos.Where(y => y.MatriculaCurso.Any(z => z.IdUsuario == idusuario)).ToList();
+            return PartialView(listModulos);
+        }
+
+
     }
 }

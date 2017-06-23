@@ -9,9 +9,14 @@ namespace ProyectoSoft2.Controllers
     public class BaseController : Controller
     {
         [Authorize]
-        public ActionResult Index()
+
+        public int ObtenerIdUsuario()
         {
-            return View();
+            using (var context = new ProyectoSoft2.DB.courageproEntities())
+            {
+                return context.Usuarios.FirstOrDefault(x => x.AspNetUsers.UserName == User.Identity.Name)?.IdUsuario ?? 0;
+
+            }
         }
     }
 }

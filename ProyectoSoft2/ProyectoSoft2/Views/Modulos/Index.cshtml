@@ -36,8 +36,10 @@
                             <td>
                                 @Html.ActionLink("Editar", "Edit", new { id = item.IdModulo }) |
                                
-                                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdModulo })
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdModulo }) |
+                                @Html.ActionLink("Crear Prueba", "MostrarCrearPrueba", "Prueba", new { id = item.IdModulo },null)
                             </td>
+
                         </tr>
                     }
                 </tbody>

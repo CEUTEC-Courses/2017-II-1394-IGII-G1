@@ -206,6 +206,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MatriculaController.cs" />
     <Compile Include="Controllers\ModulosController.cs" />
+    <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DB\Areas.cs">
@@ -271,6 +272,12 @@
     <Compile Include="DB\Respuestas.cs">
       <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sp_helpdiagrams_Result.cs">
+      <DependentUpon>ModelSPA.tt</DependentUpon>
+    </Compile>
     <Compile Include="DB\sysdiagrams.cs">
       <DependentUpon>ModelSPA.tt</DependentUpon>
     </Compile>
@@ -285,10 +292,17 @@
     <Compile Include="Models\Centro\ListaAreasAsignadasACentroViewModel.cs" />
     <Compile Include="Models\Curso\ListaAlumnosAsignadosACurso.cs" />
     <Compile Include="Models\Curso\ListaIntructorAsignadoACurso.cs" />
+    <Compile Include="Models\Curso\ListaModulosAsignadosACurso.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Matricula\ListaMatriculaViewModel.cs" />
     <Compile Include="Models\Matricula\MatriculaViewModel.cs" />
+    <Compile Include="Models\Prueba\ListaPreguntaViewModel.cs" />
+    <Compile Include="Models\Prueba\PreguntaConRespuestaViewModel.cs" />
+    <Compile Include="Models\Prueba\PreguntaViewModel.cs" />
+    <Compile Include="Models\Prueba\PruebaViewModel.cs" />
+    <Compile Include="Models\Prueba\RespuestaViewModel.cs" />
+    <Compile Include="Models\Prueba\SeleccionPreguntaViewModel.cs" />
     <Compile Include="Models\Role\RoleViewModel.cs" />
     <Compile Include="Models\Usuario\CambiarContrasenaViewModel.cs" />
     <Compile Include="Models\Usuario\EditarCuentaUsuarioViewModel.cs" />
@@ -1056,6 +1070,13 @@
     <Content Include="Views\Cursos\MostrarModalListaInstructor.cshtml" />
     <Content Include="Views\Matricula\Index.cshtml" />
     <Content Include="Views\Matricula\Create.cshtml" />
+    <Content Include="Views\Prueba\MostrarSeleccionPreguntasParaPrueba.cshtml" />
+    <Content Include="Views\Prueba\MostrarPreguntaEnCreacionPrueba.cshtml" />
+    <Content Include="Views\Prueba\MostrarCrearPrueba.cshtml" />
+    <Content Include="Views\Prueba\MostrarCrearPregunta.cshtml" />
+    <Content Include="Views\Home\MostrarModulosMatriculados.cshtml" />
+    <Content Include="Views\Cursos\MostrarModalListaModulos.cshtml" />
+    <Content Include="Views\Home\MostrarModulosMatriculadosInstructor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

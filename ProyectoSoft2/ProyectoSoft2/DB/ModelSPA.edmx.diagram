@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8562a243816949d6ad8a27136fe7b797" Name="Diagram1">
+      <Diagram DiagramId="8562a243816949d6ad8a27136fe7b797" Name="Diagram1" ZoomLevel="99">
         <EntityTypeShape EntityType="courageproModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="courageproModel.Areas" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="courageproModel.AreasPorCentro" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
